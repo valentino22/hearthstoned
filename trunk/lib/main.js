@@ -3,8 +3,8 @@ var data = require("sdk/self").data;
 var hearthStoned = require("sdk/panel").Panel({
   width: 550,
   height: 500,
-  //contentURL: data.url("cards.html"),
-  contentURL: "http://www.hsdeck.com/cards/",
+  contentURL: data.url("cards.html"),
+  // contentURL: "http://www.hsdeck.com/cards/",
   contentScriptFile: [data.url("jquery-1.10.2.min.js"),data.url("jquery.filtertable.min.js"),data.url("get-cards.js")]
 });
 
