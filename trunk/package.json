@@ -2,7 +2,7 @@
 	"name": "hearthstoned",
 	"title": "Hearthstoned",
 	"id": "jid1-H3fXVkbVPGVk2w",
-	"description": "This add-on is listing all cards and their description in the Hearthstone game. The list can be filtered so you can easily find the cards names, class specific cards (Mage, Priest, Shaman, etc.) or effects (Taunt, Charge, etc.).",
+	"description": "This add-on is listing all cards you can find in the Hearthstone game. This list contains the card properties (mana cost, attack, health) and their description as well. You can even check how the card looks like in a tooltip if you hove over its name. The list can be filtered so you can easily find the cards names, class specific cards (Mage, Priest, Shaman, etc.) and effects (Taunt, Charge, etc.).",
 	"author": "Szabolcs Ferenczi",
 	"license": "MPL 2.0",
 	"version": "1.0",
