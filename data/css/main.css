@@ -1,107 +1,77 @@
 .filter-table{
-	margin-left:5px;
+	padding-left: 10px;
+	font-size: 13px;
+	font-weight:bold;
 }
 
-@charset "utf-8";
+.filter-table input{
+	font:12px/1.3 "Lucida Sans Unicode",Arial,Helvetica,sans-serif;
+	height: 20px;
+    margin: 4px 0;
+	width:155px;
+}
+
+html, body {
+    background: none repeat scroll 0 0 #242424;
+    color: #DDDDDD;
+    font: 12px/1.3 "Lucida Sans Unicode",Arial,Helvetica,sans-serif;
+    height: 100%;
+}
+
 html, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, em, img, strong, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td {
     border: 0 none;
-    font-size: 100%;
     margin: 0;
     outline: 0 none;
     padding: 0;
 }
-ol, ul {
-    list-style: none outside none;
+
+.txclass {
+    font-size: 12px;
 }
+
 table {
     border-collapse: collapse;
     border-spacing: 0;
 }
-:focus {
-    outline: 0 none;
-}
-button::-moz-focus-inner {
-    border: 0 none;
-    padding: 0;
-}
-input::-moz-focus-inner {
-    border: 0 none;
-}
-input[type="button"] {
-    cursor: pointer;
-}
-input[type="checkbox"] {
-    cursor: pointer;
-    vertical-align: middle;
-}
-label {
-    cursor: pointer;
-    vertical-align: middle;
-}
-legend {
-    color: #777777;
-    cursor: pointer;
-    line-height: 12px;
-}
-legend:hover {
-    color: #FFBA00;
-}
-.aloader {
-    background: url("/images/loaders/loader-c242424.gif") no-repeat scroll center center rgba(0, 0, 0, 0);
-    display: inline-block;
-    height: 31px;
-    width: 31px;
-}
-.select-wrapper {
-    border: 1px solid #555555;
-    border-radius: 3px;
-    display: inline-block;
-    margin: 3px auto;
-    overflow: hidden;
-    vertical-align: top;
-}
-.select-wrapper select {
-    margin: -5px -20px -5px -5px;
-    padding: 10px;
-}
-.main-input {
-    border: 1px solid #555555;
-    border-radius: 3px;
-    font-size: 14px;
-    margin: 5px;
-    padding: 2px 7px;
-}
-.faded-text {
-    color: #555555 !important;
-}
+
 .table-info {
     background-color: #141414;
     text-align: left;
 }
+
+.table-info th {
+	background: none repeat scroll 0 0 #333333;
+    border: 1px solid #404040;
+    color: #DDDDDD;
+    cursor: pointer;
+    font-size: 13px;
+    font-weight: normal;
+    padding: 1px 20px 1px 10px;
+    text-transform: capitalize;
+	font-weight:bold;
+}
+
+.table-info th:hover {
+    color: #999;
+}
+
+.table-info th.headerSortDown, .table-info th.headerSortUp {
+    color: #999;
+}
+
 .table-info thead tr {
     height: 24px;
 }
+
+.table-info tbody tr {
+    height: 44px;
+}
+
 .table-info tbody tr:hover {
     background-color: #202020;
     cursor: pointer;
 }
-.table-info tbody tr {
-    height: 44px;
-}
-.table-info.medium tbody tr {
-    height: 30px;
-}
-.table-info th {
-    border: 1px solid #202020;
-    color: #777777;
-    cursor: pointer;
-    font-size: 11px;
-    font-weight: normal;
-    padding: 3px 20px 3px 5px;
-}
-.table-info th:hover {
-    color: #00FF00;
-}
+
 .table-info td {
     border: 1px solid #404040;
     color: #DDDDDD;
@@ -109,2076 +79,181 @@ legend:hover {
     font-weight: normal;
     padding: 4px 10px;
 }
-table.table-info thead tr .headerSortUp {
-    background-image: url("/images/sort/sort-asc.gif");
-    background-position: right center;
-    background-repeat: no-repeat;
-}
-table.table-info thead tr .headerSortDown {
-    background-image: url("/images/sort/sort-desc.gif");
-    background-position: right center;
-    background-repeat: no-repeat;
-}
-html, body {
-    color: #DDDDDD;
-    font: 12px/1.3 "Lucida Sans Unicode",Arial,Helvetica,sans-serif;
-    height: 100%;
-	background: #242424;
-}
-.yellow {
-    color: #FFBA00;
-}
-.dlink {
-    color: #FFBA00 !important;
-}
-a {
-    color: #FFBA00;
-    outline: 0 none;
-    text-decoration: none;
-    text-shadow: 1px 1px 2px #000000;
-}
-a:hover {
-    color: #FFC528;
-    text-decoration: underline;
-}
-p {
-    margin: 0.5em 0;
-}
-textarea {
-    overflow: auto;
-}
-@font-face {
-    font-family: "belwe";
-    font-style: normal;
-    font-weight: normal;
-    src: url("/fonts/belwebd-webfont.woff") format("woff"), url("/fonts/belwebd-webfont.ttf") format("truetype");
-}
-.bel {
-    color: #FFFFFF;
-    font-family: belwe;
-    font-size: 24px;
-    text-shadow: -2px 0 #000000, 0 2px #000000, 2px 0 #000000, 0 -2px #000000;
-}
-.mana {
-    color: #0070DD;
-}
-.red {
-    color: #FF0000;
-}
-.green {
-    color: #00FF00;
-}
-.green-tooltip {
-    color: #1EFF00;
-}
-.good-post {
-    color: #5DF644 !important;
-}
-.hsclass.warrior {
-    color: #C69B6D !important;
-}
-.hsclass.paladin {
-    color: #F48CBA !important;
-}
-.hsclass.hunter {
-    color: #AAD372 !important;
-}
-.hsclass.rogue {
-    color: #FFF468 !important;
-}
-.hsclass.priest {
-    color: #F0EBE0 !important;
-}
-.hsclass.shaman {
-    color: #2359FF !important;
-}
-.hsclass.mage {
-    color: #68CCEF !important;
-}
-.hsclass.warlock {
-    color: #9382C9 !important;
-}
-.hsclass.druid {
-    color: #FF7C0A !important;
-}
-.hsclass.neutral {
-    color: #999999 !important;
-}
-.cq0, .quality.basic {
-    color: #9D9D9D !important;
-}
-.cq1, .quality.common {
-    color: #FFFFFF !important;
-}
-.cq2, .quality.rare {
-    color: #0070DD !important;
-}
-.cq3, .quality.epic {
-    color: #A335EE !important;
-}
-.cq4, .quality.legendary {
-    color: #FF8000 !important;
-}
-#social-wrapper {
-    height: 23px;
-    margin: 0 auto;
-    max-width: 1240px;
-    min-width: 980px;
-    position: relative;
-    text-align: right;
-    top: 67px;
-}
-.border-box {
-    border: 1px solid #333333;
-    border-radius: 3px;
-    display: inline-block;
-    margin: 5px;
-    padding: 5px;
-}
-.border-box:hover {
-    border: 1px solid #555555;
-}
-.icon-small {
-    background-position: center center;
-    background-repeat: no-repeat;
-    display: inline-block;
-    height: 18px;
-    left: 0;
-    padding-left: 4px;
-    padding-top: 4px;
-    position: relative;
-    top: 0;
-    width: 18px;
-    z-index: 20;
-}
-.icon-small-border {
-    background: url("/images/default_icon_border_small.png") no-repeat scroll center center rgba(0, 0, 0, 0);
-    display: block;
-    height: 26px;
-    left: 0;
-    position: absolute;
-    top: 0;
-    width: 26px;
-    z-index: 2;
-}
-.card-rarity-spell {
-    background-image: url("/images/sprites/rarity_spell.png");
-    background-position: center center;
-    background-repeat: no-repeat;
-    display: block;
-    height: 30px;
-    left: 75px;
-    position: absolute;
-    top: 135px;
-    width: 30px;
-}
-.card-rarity-spell.common {
-    background-position: 0 0;
-}
-.card-rarity-spell.rare {
-    background-position: 0 -30px;
-}
-.card-rarity-spell.epic {
-    background-position: 0 -60px;
-}
-.card-rarity-spell.legendary {
-    background-position: 0 -90px;
-}
-.card-rarity-minion {
-    background-image: url("/images/sprites/rarity_minion.png");
-    background-position: center center;
-    background-repeat: no-repeat;
-    display: block;
-    height: 20px;
-    left: 68px;
-    position: absolute;
-    top: 138px;
-    width: 51px;
-}
-.card-rarity-minion.common {
-    background-position: 0 0;
-}
-.card-rarity-minion.rare {
-    background-position: 0 -20px;
-}
-.card-rarity-minion.epic {
-    background-position: 0 -40px;
-}
-.card-rarity-minion.legendary {
-    background-position: 0 -60px;
-}
-.dragon-minion {
-    background-image: url("/images/dragon_frame.png");
-    background-position: center center;
-    background-repeat: no-repeat;
-    display: block;
-    height: 102px;
-    left: 40px;
-    position: absolute;
-    top: -7px;
-    width: 135px;
-}
-.dragon-minion-token {
-    background-image: url("/images/dragon-frame-token.png");
-    background-position: center center;
-    background-repeat: no-repeat;
-    display: block;
-    height: 87px;
-    left: 10px;
-    position: absolute;
-    top: -12px;
-    width: 117px;
-    z-index: 10;
-}
-.card-rarity-equipment {
-    background-image: url("/images/sprites/rarity_equipment.png");
-    background-position: center center;
-    background-repeat: no-repeat;
-    display: block;
-    height: 22px;
-    left: 74px;
-    position: absolute;
-    top: 137px;
-    width: 28px;
-}
-.card-rarity-equipment.common {
-    background-position: 0 0;
-}
-.card-rarity-equipment.rare {
-    background-position: 0 -22px;
-}
-.card-rarity-equipment.epic {
-    background-position: 0 -44px;
-}
-.card-rarity-equipment.legendary {
-    background-position: 0 -66px;
-}
-.vote-thumb {
-    background: url("/images/sprites/thumbs.png") no-repeat scroll 0 0 rgba(0, 0, 0, 0);
-    cursor: pointer;
-    display: block;
-    height: 20px;
-    position: absolute;
-    width: 16px;
-}
-.vote-thumb.up {
-    background-position: 0 -20px;
-}
-.vote-thumb.up:hover, .vote-thumb.up.active {
-    background-position: 0 0;
-}
-.vote-thumb.down {
-    background-position: 0 -60px;
-}
-.vote-thumb.down:hover, .vote-thumb.down.active {
-    background-position: 0 -40px;
-}
-.deck-viewer-vote {
-    display: inline-block;
-    height: 20px;
-    margin: 0 10px;
-    position: relative;
-    width: 16px;
-}
-.deck-viewer-vote-count {
-}
-.wowclass {
-    background-image: url("http://www.hsdeck.com/images/sprites/class18px.png");
-    background-position: center center;
-    background-repeat: no-repeat;
-    display: inline-block;
-    height: 18px;
-    padding-left: 20px;
-    width: 18px;
-}
-.wowclass.warrior {
-    background-position: 0 0;
-}
-.wowclass.druid {
-    background-position: 0 -19px;
-}
-.wowclass.paladin {
-    background-position: 0 -38px;
-}
-.wowclass.hunter {
-    background-position: 0 -57px;
-}
-.wowclass.rogue {
-    background-position: 0 -76px;
-}
-.wowclass.priest {
-    background-position: 0 -95px;
-}
-.wowclass.dknight {
-    background-position: 0 -114px;
-}
-.wowclass.shaman {
-    background-position: 0 -133px;
-}
-.wowclass.mage {
-    background-position: 0 -152px;
-}
-.wowclass.warlock {
-    background-position: 0 -171px;
-}
-.wowclass.monk {
-    background-position: 0 -190px;
-}
-.txclass {
-    font-size: 12px;
-}
-.txclass.warrior {
-    color: #C69B6D !important;
-}
-.txclass.paladin {
-    color: #F48CBA !important;
-}
-.txclass.hunter {
-    color: #AAD372 !important;
-}
-.txclass.rogue {
-    color: #FFF468 !important;
-}
-.txclass.priest {
-    color: #F0EBE0 !important;
-}
-.txclass.dknight {
-    color: #C41E3B !important;
-}
-.txclass.shaman {
-    color: #2359FF !important;
-}
-.txclass.mage {
-    color: #68CCEF !important;
-}
-.txclass.warlock {
-    color: #9382C9 !important;
-}
-.txclass.druid {
-    color: #FF7C0A !important;
-}
-.txclass.monk {
-    color: #00FF96 !important;
-}
+
 .txclass.neutral {
     color: #999999 !important;
 }
-.clear {
-    clear: both;
-    display: block;
-    margin: 0;
-    padding: 0;
-}
-.clear-after:after {
-    clear: both;
-    content: "";
-    display: block;
-    height: 0;
-    visibility: hidden;
-}
-.float-left {
-    float: left;
-}
-.float-right {
-    float: right;
-}
-.align-left {
-    text-align: left;
-}
-.align-center {
-    text-align: center;
-}
-.align-right {
-    text-align: right;
-}
-.relative {
-    position: relative;
-}
-.dynamic-center {
-    margin: 0 auto;
-}
-.opacity0 {
-    opacity: 0;
-    position: absolute;
-}
-.opacity50 {
-    opacity: 0.5;
-}
-.clickable {
-    cursor: pointer;
-}
-.table-center {
-    margin: auto;
-}
-.hide {
-    display: none;
-}
-.img {
-    vertical-align: bottom;
-}
-.row-hidden {
-    display: none !important;
-}
-.cq.basic {
-    color: #9D9D9D;
-}
-.cq.common {
-    color: #FFFFFF;
-}
-.cq.rare {
-    color: #0070DD;
-}
-.cq.epic {
-    color: #A335EE;
-}
-.cq.legendary {
-    color: #FF8000;
-}
-.wrapper-top {
-    background: url("../images/header-mantle3.jpg") no-repeat scroll 50% top rgba(0, 0, 0, 0);
-}
-.wrapper-bottom {
-    background: url("../images/footer-bg2.jpg") no-repeat scroll 50% bottom rgba(0, 0, 0, 0);
-}
-#hsdeck-header {
-    background: url("../images/header-mantle3.jpg") no-repeat scroll 50% top rgba(0, 0, 0, 0);
-    height: 90px;
-}
-.hearthstone-logo {
-    display: block;
-    height: 150px;
-    position: absolute;
-    width: 100%;
-}
-#navbar {
-    background: linear-gradient(to bottom, #585858 0%, #242424 100%) repeat scroll 0 0 rgba(0, 0, 0, 0);
-    border: 1px solid #404040 !important;
-    box-shadow: 2px 2px 3px #000000;
-    margin: 0 auto;
-    max-width: 1240px;
-    min-width: 980px;
-    text-align: left;
-    top: 0;
-    z-index: 9999 !important;
-}
-#hsdeck-wrapper {
-    margin: 0 auto;
-    min-height: 100%;
-    position: relative;
-}
-#hsdeck-content {
-    background: none repeat scroll 0 0 #242424 !important;
-    border: 1px solid #404040;
-    margin: 0 auto;
-    position: relative;
-}
-#hsdeck-footer {
-    background: url("../images/footer-bg2.jpg") no-repeat scroll 50% bottom rgba(0, 0, 0, 0);
-    bottom: 0;
-    color: #999999;
-    display: block;
-    height: 180px;
-    margin: 0 auto;
-    position: absolute;
-    text-align: center;
-    width: 100%;
-}
-.content-top {
-}
-.content-bot {
-    background: none repeat scroll 0 0 rgba(0, 0, 0, 0);
-    line-height: 1.8em;
-    margin-bottom: 300px;
-}
-.player-class {
-    background: url("../images/sprites/classes.png") no-repeat scroll 0 0 rgba(0, 0, 0, 0);
-    cursor: pointer;
-    display: inline-block;
-    font-size: 12px;
-    font-weight: bold;
-    height: 130px;
-    opacity: 1;
-    position: relative;
-    width: 160px;
-}
-.player-class:hover {
-    opacity: 0.7;
-}
-.player-class.druid {
-    background-position: 0 -130px;
-    color: #FF7D0A;
-}
-.player-class.hunter {
-    background-position: 0 -260px;
-    color: #ABD473;
-}
-.player-class.mage {
-    background-position: 0 -390px;
-    color: #69CCF0;
-}
-.player-class.paladin {
-    background-position: 0 -520px;
-    color: #F58CBA;
-}
-.player-class.priest {
-    background-position: 0 -650px;
-    color: #FFFFFF;
-}
-.player-class.rogue {
-    background-position: 0 -780px;
-    color: #FFF569;
-}
-.player-class.shaman {
-    background-position: 0 -910px;
-}
-.player-class.warlock {
-    background-position: 0 -1040px;
-}
-.player-class.warrior {
-    background-position: 0 -1170px;
-}
-.player-class.neutral {
-    background-position: 0 -1170px;
-}
-#deck-creator-filter {
-    background-color: #242424;
-    box-shadow: 2px 2px 3px #000000;
-    color: #DDDDDD;
-    height: auto;
-    line-height: 30px;
-    margin-bottom: 10px;
-    text-align: left;
-}
-.deck-creator-option-wrapper {
-    margin-right: 300px;
-    min-height: 110px;
-    min-width: 600px;
-}
-#dcf-wrapper-ctype, #dcf-wrapper-rarity, #dcf-wrapper-cpp, .options-wrapper {
-    display: inline-block;
-    line-height: 14px;
-    margin: 0 10px;
-    position: relative;
-    vertical-align: top;
-}
-#dcf-keywords span {
-    background: url("/images/misc/delete-gray.png") no-repeat scroll right top #333333;
-    border: 1px solid #555555;
-    border-radius: 3px;
-    color: #FFBA00;
-    display: inline-block;
-    font-size: 12px;
-    margin: 2px 5px;
-    padding: 2px 10px 2px 7px;
-}
-#dcf-keywords span:hover {
-    background: url("/images/misc/delete-hover.png") no-repeat scroll right top #404040;
-    color: #FFFFFF;
-    cursor: pointer;
-}
-.card, .card-in-deck {
-    color: #000000;
-    cursor: pointer;
-    display: inline-block;
-    height: 250px;
-    margin: 10px 5px;
-    position: relative;
-    width: 178px;
-}
-.card-in-deck {
-    margin-left: -90px;
-}
-.card-in-deck:hover {
-    z-index: 99999;
-}
-.card-overlay {
-    display: block;
-    height: 100%;
-    position: absolute;
-    width: 100%;
-}
-.card-overlay.spell {
-    background: url("../images/cardframe_spell_03.png") no-repeat scroll center center rgba(0, 0, 0, 0);
-}
-.card-overlay.minion {
-    background: url("../images/cardframe_minion_03.png") no-repeat scroll center center rgba(0, 0, 0, 0);
-}
-.card-overlay.dragon {
-    background: url("../images/cardframe_dragon.png") no-repeat scroll center center rgba(0, 0, 0, 0);
-}
-.card-overlay.equipment {
-    background: url("../images/cardframe_equipment_03.png") no-repeat scroll center center rgba(0, 0, 0, 0);
-}
-.card .equipment-image, .card-in-deck .equipment-image {
-    display: block;
-    left: 32px;
-    position: absolute;
-    top: 18px;
-}
-.card .minion-image, .card-in-deck .minion-image {
-    display: block;
-    left: 40px;
-    position: absolute;
-    top: 5px;
-}
-.card .spell-image, .card-in-deck .spell-image {
-    display: block;
-    left: 25px;
-    position: absolute;
-    top: 28px;
-}
-.card .equipment-title, .card-in-deck .equipment-title {
-    display: block;
-    left: 9px;
-    position: absolute;
-    top: 114px;
-}
-.card .minion-title, .card-in-deck .minion-title {
-    display: block;
-    left: 9px;
-    position: absolute;
-    top: 113px;
-}
-.card .spell-title, .card-in-deck .spell-title {
-    display: block;
-    left: 9px;
-    position: absolute;
-    top: 108px;
-}
-.card .mana-cost, .card-in-deck .mana-cost {
-    display: block;
-    left: 7px;
-    position: absolute;
-    top: 10px;
-}
-.card .attack, .card-in-deck .attack {
-    bottom: 5px;
-    display: block;
-    left: 8px;
-    position: absolute;
-}
-.card .health, .card-in-deck .health {
-    bottom: 5px;
-    display: block;
-    position: absolute;
-    right: 6px;
-}
-.card .equipment-desc, .card-in-deck .equipment-desc {
-    color: #CCCCCC;
-    display: block;
-    font-size: 12px;
-    height: 60px;
-    left: 30px;
-    line-height: 12px;
-    max-height: 60px;
-    overflow: hidden;
-    position: absolute;
-    text-align: center;
-    top: 160px;
-    width: 115px;
-}
-.card .minion-desc, .card-in-deck .minion-desc {
-    display: block;
-    font-size: 11px;
-    height: 60px;
-    left: 30px;
-    line-height: 60px;
-    max-height: 60px;
-    overflow: hidden;
-    position: absolute;
-    text-align: center;
-    top: 160px;
-    width: 115px;
-}
-.card .minion-desc span, .card-in-deck .minion-desc span {
-    display: inline-block;
-    line-height: 11px;
-    vertical-align: middle;
-}
-.card .spell-desc, .card-in-deck .spell-desc {
-    display: block;
-    font-size: 11px;
-    height: 55px;
-    left: 30px;
-    line-height: 55px;
-    overflow: hidden;
-    position: absolute;
-    text-align: center;
-    top: 165px;
-    width: 116px;
-}
-.card .spell-desc span, .card-in-deck .spell-desc span {
-    display: inline-block;
-    line-height: 11px;
-    vertical-align: middle;
-}
-.card .card-count {
-    color: #777777;
-    display: block;
-    font-family: belwe;
-    font-size: 24px;
-    height: 24px;
-    overflow: hidden;
-    position: absolute;
-    text-align: center;
-    top: 238px;
-    width: 100%;
-}
-.deck-build-cost {
-    background-color: #141414;
-    display: block;
-    height: 92px;
-    margin: 0 auto;
-    position: relative;
-    top: 20px;
-    width: 163px;
-}
-.deck-build-cost .overlay {
-    background-image: url("/images/deck-build-cost.png");
-    background-position: center center;
-    background-repeat: no-repeat;
-    display: block;
-    height: 92px;
-    left: 0;
-    position: absolute;
-    top: 0;
-    width: 163px;
-    z-index: 10;
-}
-.deck-build-cost .bar-mana {
-    background-color: #FFBA00;
-    bottom: 21px;
-    display: block;
-    height: 0;
-    position: absolute;
-    width: 16px;
-}
-.bar-mana.cost-0 {
-    left: 1px;
-}
-.bar-mana.cost-1 {
-    left: 21px;
-}
-.bar-mana.cost-2 {
-    left: 41px;
-}
-.bar-mana.cost-3 {
-    left: 61px;
-}
-.bar-mana.cost-4 {
-    left: 81px;
-}
-.bar-mana.cost-5 {
-    left: 101px;
-}
-.bar-mana.cost-6 {
-    left: 121px;
-}
-.bar-mana.cost-7 {
-    left: 141px;
-}
-.deck-build-mana-card-count {
-    color: #777777;
-    display: block;
-    font-size: 10px;
-    height: 16px;
-    position: absolute;
-    top: -12px;
-    width: 16px;
-}
-.deck-build-mana-card-count.mcc-0 {
-    left: 1px;
-}
-.deck-build-mana-card-count.mcc-1 {
-    left: 21px;
-}
-.deck-build-mana-card-count.mcc-2 {
-    left: 41px;
-}
-.deck-build-mana-card-count.mcc-3 {
-    left: 61px;
-}
-.deck-build-mana-card-count.mcc-4 {
-    left: 81px;
-}
-.deck-build-mana-card-count.mcc-5 {
-    left: 101px;
-}
-.deck-build-mana-card-count.mcc-6 {
-    left: 121px;
-}
-.deck-build-mana-card-count.mcc-7 {
-    left: 141px;
-}
-.card-basic {
-    background-color: #141414;
-    border: 1px solid #404040;
-    cursor: pointer;
-    display: inline-block;
-    height: 50px;
-    margin: 3px 5px;
-    position: relative;
-    width: 220px;
-}
-.card-basic:hover {
-    border: 1px solid #FFBA00;
-    box-shadow: 2px 2px 5px #000000;
-}
-.card-basic:active {
-    border: 1px solid #555555;
-    box-shadow: none;
-}
-.card-basic a {
-    display: block;
-    height: 100%;
-    width: 100%;
-}
-.card-basic .card-icon {
-    left: 10px;
-    padding-left: 4px;
-    padding-top: 4px;
-    position: absolute;
-    top: 3px;
-}
-.card-basic .card-icon .icon-overlay {
-    background-image: url("/images/default_icon_border_medium.png");
-    background-position: center center;
-    background-repeat: no-repeat;
-    display: block;
-    height: 44px;
-    left: 0;
-    position: absolute;
-    top: 0;
-    width: 44px;
-    z-index: 30;
-}
-.card-basic .title {
-    display: inline-block;
-    font-family: belwe;
-    font-size: 14px;
-    height: 15px;
-    left: 60px;
-    position: absolute;
-    top: 8px;
-}
-.card-basic:hover .title {
-    top: 0;
-}
-.card-basic .card-desc {
-    color: #555555;
-    display: none;
-    font-size: 9px;
-    height: auto;
-    left: 60px;
-    line-height: 9px;
-    position: absolute;
-    text-align: left;
-    top: 16px;
-}
-.card-basic:hover .card-desc {
-    display: inline-block;
-}
-.card-basic .card-stats {
-    bottom: 0;
-    display: none;
-    height: 18px;
-    left: 60px;
-    opacity: 0.1;
-    position: absolute;
-}
-.card-basic:hover .card-stats {
-    display: block;
-    opacity: 0.5;
-}
-.card-basic .mana-cost {
-    background-image: url("/images/mana-gem-29px.png");
-    background-position: center center;
-    background-repeat: no-repeat;
-    display: block;
-    height: 29px;
-    position: absolute;
-    right: -4px;
-    top: 0;
-    width: 29px;
-}
-.card-basic .card-count {
-    bottom: 0;
-    color: #777777;
-    display: block;
-    font-family: belwe;
-    font-size: 16px;
-    height: 20px;
-    overflow: hidden;
-    position: absolute;
-    right: 3px;
-    text-align: right;
-    width: 30px;
-}
-.tbl-deck-builder {
-    border-collapse: collapse;
-}
-.tbl-deck-builder thead tr {
-    text-align: center;
-}
-.tbl-deck-builder thead tr th {
-    border: 1px solid #202020;
-    color: #777777;
-    font-size: 11px;
-    font-weight: normal;
-    padding: 3px 20px 3px 5px;
-}
-.card-listview {
-    background-color: #141414;
-    border: 1px solid #404040;
-    cursor: pointer;
-    height: 44px;
-    table-layout: fixed;
-    text-align: left;
-    width: 100%;
-}
-.card-listview:hover {
-    background-color: #202020 !important;
-}
-.card-listview .title {
-    font-family: belwe;
-    font-size: 14px;
-    min-width: 500px;
-    width: 80%;
-}
-.card-listview .card-desc {
-    color: #555555;
-    font: 12px/1.3 "Lucida Sans Unicode",Arial,Helvetica,sans-serif;
-}
-.card-listview:hover .card-desc {
-    color: #1EFF00;
-    font: 12px/1.3 "Lucida Sans Unicode",Arial,Helvetica,sans-serif;
-}
-.card-listview .cell-icon {
-    min-width: 50px;
-    vertical-align: middle;
-}
-.card-listview .cell-icon .card-icon {
-    display: block;
-    padding-left: 4px;
-    padding-top: 4px;
-    position: relative;
-}
-.card-listview .cell-icon .card-icon .icon-overlay {
-    background-image: url("/images/default_icon_border_medium.png");
-    background-position: center center;
-    background-repeat: no-repeat;
-    display: block;
-    height: 44px;
-    left: 0;
-    position: absolute;
-    top: 0;
-    width: 44px;
-    z-index: 30;
-}
-.card-listview .cell-hero-class {
-    min-width: 50px;
-    vertical-align: middle;
-}
-.card-listview .cell-mana {
-    min-width: 50px;
-    vertical-align: middle;
-}
-.card-listview .cell-attack {
-    min-width: 50px;
-    vertical-align: middle;
-}
-.card-listview .cell-health {
-    min-width: 50px;
-    vertical-align: middle;
-}
-.card-listview .cell-mana span, .card-listview .cell-attack span, .card-listview .cell-health span {
-    color: #FFFFFF;
-    padding-left: 20px;
-}
-.card-listview .card-count {
-    min-width: 50px;
-    text-align: center;
-    vertical-align: middle;
-}
-.icn16 {
-    background: url("http://www.hsdeck.com/images/sprites/sprite16px.png") no-repeat scroll 0 0 rgba(0, 0, 0, 0);
-    display: inline-block;
-    height: 16px;
-    width: 16px;
-    z-index: 2;
-}
-.icn16.bdeck {
-    line-height: 16px;
-    margin-right: 5px;
-    padding-left: 14px;
-}
-.icn16.attack {
-    background-position: 0 0;
-}
-.icn16.health {
-    background-position: 0 -16px;
-}
-.icn16.mana {
-    background-position: 0 -32px;
-}
-.icn16.weapon-attack {
-    background-position: 0 -48px;
-}
-.icn16.durability {
-    background-position: 0 -64px;
-}
-.icn16.armor {
-    background-position: 0 -80px;
-}
-#deck-creator {
-}
-.card-list-wrapper {
-    float: left;
-    width: 100%;
-}
-.card-list {
-    margin-right: 300px;
-    min-height: 100px;
-    min-width: 100px;
-}
-.deck-wrapper {
-    float: left;
-    margin-left: -305px;
-    min-height: 600px;
-    width: 300px;
-}
-.deck-card {
-    background: url("../images/mana-gem-20.png") no-repeat scroll left center rgba(0, 0, 0, 0);
-    border-bottom: 1px solid #333333;
-    color: #777777;
-    cursor: pointer;
-    display: inline-block;
-    height: 16px;
-    min-width: 220px;
-    position: relative;
-    width: 100%;
-}
-.deck-card:hover {
-    color: #00FF00;
-}
-.deck-card .deck-card-mana-cost {
-    color: #FFFFFF;
-    display: block;
-    font-family: belwe;
-    font-size: 20px;
-    height: 20px;
-    line-height: 16px;
-    position: absolute;
-    text-shadow: -2px 0 #000000, 0 2px #000000, 2px 0 #000000, 0 -2px #000000;
-    width: 20px;
-}
-.deck-card .deck-card-title {
-    color: #FFFFFF;
-    display: block;
-    font-size: 14px;
-    height: 16px;
-    left: 32px;
-    position: absolute;
-    width: 198px;
-}
-.deck-card .deck-card-count {
-    display: block;
-    font-family: belwe;
-    font-size: 16px;
-    height: 16px;
-    position: absolute;
-    right: 0;
-    width: 32px;
-}
-#deck-builder-paginate {
-    margin: 30px 300px 20px 3px;
-}
-#deck-build-info {
-    color: #00FF00;
-    margin: 20px 300px 0 3px;
-    text-align: center;
-}
-.paginate {
-    margin: 30px 3px 3px;
-    padding: 3px;
-    text-align: center;
-}
-.paginate a {
-    background: none repeat scroll 0 0 #233953;
-    border-radius: 3px;
-    box-shadow: 3px 3px 10px #000000;
-    color: #A99877;
-    margin: 2px;
-    padding: 3px 10px;
-    text-decoration: none;
-}
-.paginate a:hover, .paginate a:active {
-    background-color: #33557D;
-    color: #FFFFFF;
-}
-.paginate span.current {
-    background-color: #33557D;
-    border-radius: 3px;
-    color: #FFFFFF;
-    font-weight: bold;
-    margin: 2px;
-    padding: 3px 10px;
-}
-.paginate span.disabled {
-    color: #333333;
-    margin: 2px;
-    padding: 3px 10px;
-}
-#latest-blue, #latest-forum {
-    border: 1px solid #333333;
-    box-shadow: 2px 2px 5px #000000;
-    display: inline-block;
-    margin: 10px 5px 0;
-    position: relative;
-    text-align: left;
-    width: 48%;
-}
-#latest-blue {
-    float: left;
-}
-#latest-forum {
-    float: right;
-}
-#latest-blue table tr:hover, #latest-forum table tr:hover {
-}
-#latest-blue table tr td, #latest-forum table tr td {
-    padding: 2px 2px 2px 5px;
-}
-.blue-question {
-    color: #FFFFFF;
-    display: block;
-    padding-top: 15px;
-}
-.blue-answer {
-    color: #00C0FF !important;
-}
-.quote-blizz {
-    background: url("/images/blog/bluepost-bg.png") no-repeat scroll left top #13181E;
-    color: #00C0FF;
-}
-.golden-border {
-    border: 1px solid #FFBA00 !important;
-}
-.news-section {
-    border: 1px solid #333333;
-    border-radius: 10px;
-    box-shadow: 3px 3px 10px #000000;
-    margin: 10px;
-    text-align: left;
-}
-.news-section:hover {
-    border: 1px solid #555555;
-}
-.news-section.blizzard {
-    background-color: #13181E;
-    background-image: url("/images/bluepost-bg.png");
-    background-position: left top;
-    background-repeat: no-repeat;
-}
-.news-section.hearthstone {
-    background: url("http://www.hsdeck.com/images/misc/hearthstone-section-bg.jpg") no-repeat scroll right top #242424;
-}
-.news-section .section-header {
-    font-size: 14px;
-    height: 25px;
-}
-.news-section .section-header h3 {
-    color: #FFBA00;
-    float: left;
-    font-size: 12px;
-    font-weight: normal;
-    height: 25px;
-    line-height: 25px;
-    padding: 0 30px;
-}
-.news-section .section-date {
-    color: #777777;
-    float: right;
-    font-size: 12px;
-    height: 25px;
-    line-height: 25px;
-    padding: 0 10px;
-}
-.news-section .section-body {
-    color: #DDDDDD;
-    font-size: 12px;
-    line-height: 16px;
-    padding: 5px 20px 15px;
-    position: relative;
-}
-#deck-creator, #deck-viewer {
-    background-color: #141414;
-    text-align: center;
-}
-.white-headline {
-    border-bottom: 1px solid #505050;
-    color: #FFFFFF;
-    font-size: 17px;
-    font-weight: bold;
-    line-height: 1.25em;
-    margin: 20px 10px 10px;
-    padding: 0 0 3px;
-}
-#post-deck-comment, #post-card-comment, #post-puzzle-comment {
-    margin-top: 20px;
-    text-align: center;
-}
-.dark-gray-block {
-    background-color: #141414;
-    box-shadow: 2px 2px 3px #000000;
-    color: #DDDDDD;
-    margin: 0 10px;
-    padding: 10px;
-}
-#deck-comments, #card-comments, #puzzle-comments {
-    position: relative;
-    text-align: left;
-}
-.hidden-comment {
-    cursor: pointer;
-    min-height: 30px;
-    opacity: 0.5;
-}
-.comment-wrapper {
-    background-color: #242424;
-    border: 1px solid #333333;
-    border-radius: 6px;
-    box-shadow: 2px 2px 3px #000000;
-    color: #DDDDDD;
-    margin-bottom: 10px;
-    padding: 0 6px 6px;
-}
-.comment-wrapper.latest {
-    background-color: #001100;
-    border: 1px solid #009900;
-}
-.comment-wrapper:hover {
-    background-color: #282828;
-    border: 1px solid #555555;
-}
-.comment-wrapper.reply {
-    margin-left: 20px;
-}
-.comment-wrapper .comment {
-    min-height: 20px;
-    padding: 20px 10px 10px;
-    position: relative;
-}
-.comment-wrapper .comment-author {
-    display: block;
-    font-size: 12px;
-    height: 16px;
-    left: 50px;
-    position: absolute;
-    text-align: left;
-    top: 0;
-    width: 200px;
-}
-.comment-wrapper .comment-date {
-    color: #777777;
-    font-size: 10px;
-}
-.comment-wrapper .comment-text {
-    display: block;
-    padding-left: 40px;
-}
-.comment-reply {
-    color: #00C0FF;
-    cursor: pointer;
-    font-size: 12px;
-    position: absolute;
-    right: 0;
-    text-align: center;
-    top: 0;
-    width: 50px;
-}
-.comment-reply-wrapper {
-    display: none;
-    padding-left: 40px;
-}
-.card-vote-wrap {
-    display: block;
-    font-size: 12px;
-    font-weight: bold;
-    height: 16px;
-    left: 0;
-    position: absolute;
-    text-align: center;
-    top: 0;
-    width: 40px;
-}
-.card-vote-wrap .comment-score {
-    color: #555555;
-    display: block;
-    font-size: 16px;
-}
-.card-vote-wrap .vote-up {
-    color: #00FF00;
-    display: block;
-    font-size: 10px;
-    opacity: 0.2;
-    padding: 0 5px;
-}
-.card-vote-wrap .vote-up:hover {
-    color: #00FF00;
-    cursor: pointer;
-    opacity: 1;
-}
-.card-vote-wrap .vote-down {
-    color: #FF0000;
-    display: block;
-    font-size: 10px;
-    opacity: 0.2;
-    padding: 0 5px;
-}
-.card-vote-wrap .vote-down:hover {
-    color: #FF0000;
-    cursor: pointer;
-    opacity: 1;
-}
-#utopian-navigation, #utopian-navigation ul {
-    font-size: 14px;
-    list-style: none outside none;
-    margin: 0;
-    padding: 0;
-}
-#utopian-navigation a {
-    color: #FFBA00;
-    display: block;
-    line-height: 1;
-    padding: 10px 20px;
-    text-decoration: none;
-}
-#utopian-navigation a:hover {
+
+.txclass.priest {
+    color: #FFFE1F !important;
+}
+
+.txclass.paladin {
+    color: #FB920B !important;
+}
+
+.txclass.warrior {
+    color: #FFD1A4 !important;
+}
+
+.txclass.rogue {
+    color: #C62012 !important;
+}
+
+.txclass.druid {
+    color: #9260B3 !important;
+}
+
+.txclass.mage {
+    color: #68CCEF!important;
+}
+
+.txclass.warlock {
+    color: #B8A6F1 !important;
+}
+
+.txclass.shaman {
+    color: #20678B !important;
+}
+
+.txclass.hunter {
+    color: #B16C1E !important;
+}
+
+.quality.basic {
+    color: #999999 !important;
+}
+
+.quality.common {
     color: #FFFFFF !important;
 }
-#utopian-navigation li {
-    float: left;
-}
-#utopian-navigation li ul {
-    background: -moz-radial-gradient(80% 0 0deg, circle farthest-corner, #787878, #666666, #666666 90%) repeat scroll 0 0 rgba(0, 0, 0, 0);
-    box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.6);
-    left: -9999px;
-    position: absolute;
-    width: 190px;
-    z-index: 1000;
-}
-#utopian-navigation li ul a {
-    border-color: #838383 #7B7B7B #484848 #4C4C4C;
-    border-style: solid;
-    border-width: 1px;
-    color: #A4A4A4;
-    font-weight: normal;
-    padding: 5px 19px;
-    text-shadow: -1px -1px 0 #4D4D4D;
-    width: 150px;
-}
-#utopian-navigation li ul a:hover, #utopian-navigation > li.dropdown li.dropdown > a:hover, #utopian-navigation > li.dropdown li.dropdown:hover > a {
-    background: -moz-linear-gradient(100% 100% 90deg, #017BCD, #33ADFF) repeat scroll 0 0 rgba(0, 0, 0, 0);
-    border-top: 0 none;
-    color: #FFFFFF;
-    font-weight: bold;
-    padding-top: 6px;
-    text-shadow: -1px -1px 0 #1C567C;
-}
-#utopian-navigation > li.dropdown li.dropdown > a:hover, #utopian-navigation > li.dropdown li.dropdown:hover > a {
-    background-attachment: scroll;
-    background-clip: border-box;
-    background-color: #0099FF;
-    background-image: url("../assets/arrow-right-white.gif"), -moz-linear-gradient(100% 100% 90deg, #017BCD, #33ADFF);
-    background-origin: padding-box;
-    background-position: right center;
-    background-repeat: no-repeat;
-    background-size: auto auto;
-}
-#utopian-navigation li ul ul {
-    margin: -26px 0 0 190px;
-}
-#utopian-navigation li:hover ul ul, #utopian-navigation li:hover ul ul ul {
-    left: -9999px;
-}
-#utopian-navigation li:hover ul, #utopian-navigation li li:hover ul, #utopian-navigation li li li:hover ul {
-    left: auto;
-}
-#utopian-navigation > li.dropdown > a {
-    background: url("../assets/arrow-down-gray.gif") no-repeat scroll right center rgba(0, 0, 0, 0);
-    padding-right: 35px;
-}
-#utopian-navigation > li.dropdown:hover > a {
-    background-attachment: scroll;
-    background-clip: border-box;
-    background-color: #666666;
-    background-image: url("../assets/arrow-down-white.gif"), -moz-radial-gradient(80% 0 0deg, circle farthest-corner, #787878, #666666, #666666 90%);
-    background-origin: padding-box;
-    background-position: right center;
-    background-repeat: no-repeat;
-    background-size: auto auto;
-    border-color: #8D8D8D #7B7B7B #484848 #4C4C4C;
-    border-style: solid;
-    border-width: 1px;
-    box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.6);
-    color: #FFFFFF;
-    padding: 9px 34px 9px 19px;
-    text-shadow: -1px -1px 0 #595959;
-}
-#utopian-navigation > li.dropdown li.dropdown > a {
-    background: url("../assets/arrow-right-gray.gif") no-repeat scroll right center rgba(0, 0, 0, 0);
-}
-#utopian-navigation > li.active > a, #utopian-navigation > li.active > a:hover {
-    color: #FFFFFF;
-}
-#utopian-navigation.vertical {
-    width: 190px;
-}
-#utopian-navigation.vertical a {
-    width: 150px;
-}
-#utopian-navigation.vertical li ul {
-    margin: -34px 0 0 190px;
-}
-#utopian-navigation.vertical > li.dropdown > a {
-    background: url("../assets/arrow-right-gray.gif") no-repeat scroll right center rgba(0, 0, 0, 0);
-    width: 135px;
-}
-#utopian-navigation.vertical > li.dropdown:hover > a {
-    background-attachment: scroll;
-    background-clip: border-box;
-    background-color: #666666;
-    background-image: url("../assets/arrow-right-white.gif"), -moz-radial-gradient(80% 0 0deg, circle farthest-corner, #787878, #666666, #666666 90%);
-    background-origin: padding-box;
-    background-position: right center;
-    background-repeat: no-repeat;
-    background-size: auto auto;
-}
-#utopian-navigation.black li ul {
-    background: -moz-radial-gradient(90% -20% 0deg, circle farthest-corner, #252525, #000000, #000000 150%) repeat scroll 0 0 rgba(0, 0, 0, 0);
-}
-#utopian-navigation.black li ul a {
-    border-color: #1C1C1C #1A1A1A #000000 #000000;
-    color: #4D4D4D;
-    text-shadow: -1px -1px 0 #000000;
-}
-#utopian-navigation.black li ul a:hover, #utopian-navigation.black > li.dropdown li.dropdown > a:hover, #utopian-navigation.black > li.dropdown li.dropdown:hover > a {
-    background: -moz-linear-gradient(100% 100% 90deg, #181818, #252525) repeat scroll 0 0 rgba(0, 0, 0, 0);
-    color: #FFFFFF;
-    font-weight: bold;
-}
-#utopian-navigation.black > li.dropdown li.dropdown > a:hover, #utopian-navigation.black > li.dropdown li.dropdown:hover > a {
-    background-attachment: scroll;
-    background-clip: border-box;
-    background-color: #181818;
-    background-image: url("../assets/arrow-right-white.gif"), -moz-linear-gradient(100% 100% 90deg, #181818, #252525);
-    background-origin: padding-box;
-    background-position: right center;
-    background-repeat: no-repeat;
-    background-size: auto auto;
-}
-#utopian-navigation.black > li.dropdown:hover > a {
-    background-attachment: scroll;
-    background-clip: border-box;
-    background-color: #000000;
-    background-image: url("../assets/arrow-down-white.gif"), -moz-radial-gradient(90% -20% 0deg, circle farthest-corner, #191919, #000000, #000000 150%);
-    background-origin: padding-box;
-    background-position: right center;
-    background-repeat: no-repeat;
-    background-size: auto auto;
-    border-color: #1C1C1C #1A1A1A #000000 #000000;
-    color: #FFFFFF;
-    text-shadow: none;
-}
-#utopian-navigation.vertical.black > li.dropdown:hover > a {
-    background-attachment: scroll;
-    background-clip: border-box;
-    background-color: #000000;
-    background-image: url("../assets/arrow-right-white.gif"), -moz-radial-gradient(90% 0 0deg, circle farthest-corner, #191919, #000000, #000000 150%);
-    background-origin: padding-box;
-    background-position: right center;
-    background-repeat: no-repeat;
-    background-size: auto auto;
-}
-#utopian-navigation.black > li.dropdown li.dropdown > a {
-    background: url("../assets/arrow-right-darkgray.gif") no-repeat scroll right center rgba(0, 0, 0, 0);
-    text-shadow: none;
-}
-.token {
-    cursor: pointer;
-    display: inline-block;
-    height: 135px;
-    position: relative;
-    vertical-align: top;
-    width: 105px;
-}
-.token:hover {
-    opacity: 0.8;
-    z-index: 10;
-}
-.token .overlay {
-    background: url("/images/token.png") no-repeat scroll center center rgba(0, 0, 0, 0);
-    height: 100%;
-    left: 0;
-    position: absolute;
-    top: 0;
-    width: 100%;
-    z-index: 3;
-}
-.token .timg {
-    height: 116px;
-    left: 9px;
-    position: absolute;
-    top: 5px;
-    width: 86px;
-    z-index: 0;
-}
-.token .attack {
-    bottom: 25px;
-    height: 24px;
-    left: 6px;
-    line-height: 24px;
-    position: absolute;
-    text-align: center;
-    width: 30px;
-    z-index: 5;
-}
-.token .health {
-    bottom: 25px;
-    height: 24px;
-    line-height: 24px;
-    position: absolute;
-    right: 10px;
-    text-align: center;
-    width: 30px;
-    z-index: 5;
-}
-.token.taunt {
-    height: 155px;
-    width: 119px;
-}
-.token.taunt .overlay {
-    background: url("/images/token-taunt.png") no-repeat scroll center center rgba(0, 0, 0, 0);
-}
-.token.taunt .timg {
-    left: 14px;
-    top: 6px;
-}
-.token.taunt .attack {
-    bottom: 43px;
-    left: 11px;
-}
-.token.taunt .health {
-    bottom: 43px;
-    right: 16px;
-}
-.test-card-wrapper {
-    border: 1px solid rgba(0, 0, 0, 0);
-    display: block;
-    left: 0;
-    margin: 0 auto;
-    min-height: 260px;
-    min-width: 1000px;
-    position: absolute;
-    text-align: center;
-    top: 730px;
-    width: 100%;
-}
-.test-token-wrapper {
-    border: 1px solid rgba(0, 0, 0, 0);
-    border-radius: 6px;
-    display: block;
-    left: 140px;
-    margin: 0 auto;
-    min-height: 130px;
-    position: absolute;
-    text-align: center;
-    width: 826px;
-}
-.test-token-wrapper.enemy {
-    top: 203px;
-}
-.test-token-wrapper.my {
-    top: 357px;
-}
-#puzzle-card-results ul li {
-    cursor: pointer;
-}
-#puzzle-card-results ul li span {
-    font-size: 12px;
-}
-#puzzle-card-results ul li:hover {
-    background-color: #202020;
-}
-#puzzle-card-destroy {
-    background: url("/images/buttons/puzzle-trash.png") no-repeat scroll center center rgba(0, 0, 0, 0);
-    border: 1px solid #333333;
-    border-radius: 6px;
-    margin-top: 30px;
-    min-height: 100px;
-    text-align: center;
-}
-.puzzle-ui-state-active {
-    background-color: rgba(0, 0, 0, 0.5) !important;
-    border: 1px solid #555555 !important;
-}
-.puzzle-ui-state-hover {
-    background-color: rgba(0, 0, 0, 0.2) !important;
-    border-color: #244F72 !important;
-}
-#my-card-wrapper {
-}
-#puzzle-board .puzzle-class {
-    cursor: pointer;
-    display: block;
-    height: 143px;
-    position: absolute;
-    width: 125px;
-}
-#puzzle-board .puzzle-class.enemy {
-    left: 490px;
-    top: 42px;
-}
-#puzzle-board .puzzle-class.player {
-    left: 493px;
-    top: 525px;
-}
-.puzzle-class .health {
-    background: url("/images/health-01.png") no-repeat scroll center center rgba(0, 0, 0, 0);
-    cursor: pointer;
-    display: block;
-    height: 50px;
-    left: 98px;
-    line-height: 50px;
-    position: absolute;
-    text-align: center;
-    top: 104px;
-    width: 39px;
-    z-index: 5;
-}
-.puzzle-class .health:hover {
-    opacity: 0.8;
-}
-.puzzle-mana {
-    cursor: pointer;
-    display: block;
-    height: 31px;
-    position: absolute;
-    text-align: center;
-    width: 65px;
-}
-.puzzle-mana:hover {
-    opacity: 0.8;
-}
-.puzzle-mana.enemy {
-    left: 719px;
-    top: 0;
-}
-.puzzle-mana.player {
-    left: 751px;
-    top: 713px;
-}
-.hero-power-wrapper {
-    display: block;
-    height: 120px;
-    position: absolute;
-    width: 113px;
-}
-.hero-power-wrapper.enemy {
-    left: 627px;
-    top: 82px;
-}
-.hero-power-wrapper.player {
-    left: 630px;
-    top: 533px;
-}
-.hero-power-overlay {
-    background: url("/images/hero-power/hero-power-overlay.png") no-repeat scroll center center rgba(0, 0, 0, 0);
-    display: block;
-    height: 100%;
-    position: absolute;
-    width: 100%;
-    z-index: 5;
-}
-.hero-power-wrapper .ability {
-    display: block;
-    height: 69px;
-    left: 22px;
-    position: absolute;
-    top: 30px;
-    width: 71px;
-}
-.puzzle-bg-overlay {
-    background: url("/images/background/puzzle-bg-2.jpg") no-repeat scroll 0 -35px #242424;
-    display: block;
-    height: 100%;
-    position: absolute;
-    width: 100%;
-}
-#puzzle-mana-bar-wrapper {
-    display: block;
-    height: 24px;
-    left: 827px;
-    max-width: 250px;
-    position: absolute;
-    top: 716px;
-}
-.mana-crystal {
-    background: url("/images/sprites/mana-dual.png") no-repeat scroll 0 0 rgba(0, 0, 0, 0);
-    display: inline-block;
-    height: 24px;
-    position: relative;
-    width: 24px;
-}
-.mana-crystal.faded {
-    background-position: 0 -24px;
-}
-#puzzle-options-wrapper {
-    background-color: #202020;
-    border: 1px solid #333333;
-    border-radius: 6px;
-    margin-bottom: 10px;
-    padding: 5px 10px;
-}
-#puzzle-options-wrapper .options-toggle {
-    color: #FFBA00;
-    cursor: pointer;
-    text-align: right;
-}
-#puzzle-options-wrapper .options-data {
-    display: none;
-}
-#puzzle-description {
-    background-color: #202020;
-    border: 1px solid #333333;
-    border-radius: 6px;
-    margin-bottom: 10px;
-    padding: 5px 10px;
-}
-#puzzle-description .ptitle {
-    color: #1EFF00;
-    display: block;
-    font-size: 14px;
-    margin: 10px auto;
-    text-align: center;
-}
-#puzzle-description .pcomment {
-    color: #AAAAAA;
-    display: block;
-    font-size: 11px;
-    margin: 0 10px 10px;
-    text-align: left;
-}
-#puzzle-description .plink a {
-    color: #FFBA00;
-    display: block;
-    text-align: right;
-}
-.btn {
-    background: url("/images/buttons/hearthstone-logo.png") no-repeat scroll 0 0 rgba(0, 0, 0, 0);
-    cursor: pointer;
-    display: inline-block;
-    height: 31px;
-    width: auto;
-}
-.btn:hover {
-    background-position: 0 -31px !important;
-}
-.btn.save-puzzle {
-    background-image: url("/images/buttons/hearthstone-logo.png");
-}
-.btn span {
-    color: #FFBA00;
-    display: inline-block;
-    font-size: 14px;
-    height: 100%;
-    line-height: 31px;
-    padding-left: 40px;
-}
-.btn span:hover {
-    color: #FFFFFF;
-    text-shadow: 0 0 10px #FFFFFF;
-}
-.deck-viewer-options {
-    background-color: #242424;
-    box-shadow: 2px 2px 3px #000000;
-    color: #DDDDDD;
-    height: auto;
-    line-height: 30px;
-    margin-bottom: 10px;
-    max-height: 85px;
-    overflow: hidden;
-    position: relative;
-    text-align: left;
-}
-#deck-list {
-    display: block;
-    position: relative;
-}
-#deck-list .deck-list-content {
-    float: left;
-    width: 100%;
-}
-#deck-list .deck-list-ads {
-    float: left;
-    margin-left: -160px;
-    min-height: 600px;
-    width: 160px;
-}
-.ad-160x600 {
-    background: url("/images/misc/ad160x600.png") no-repeat scroll 0 0 rgba(0, 0, 0, 0);
-    min-height: 600px;
-    min-width: 160px;
-}
-.ad-300x250 {
-    background: url("/images/misc/ad300x250.png") no-repeat scroll 0 0 rgba(0, 0, 0, 0);
-    min-height: 250px;
-    min-width: 300px;
-}
-#deck-list .deck-list-item {
-    background-color: #242424;
-    border: 1px solid #404040;
-    box-shadow: 2px 2px 5px #000000;
-    display: inline-block;
-    height: 85px;
-    margin: 3px 5px;
-    position: relative;
-    width: 27%;
-}
-#deck-list .deck-list-item:hover {
-    border: 1px solid #FFBA00;
-}
-#deck-list .deck-list-item a {
-    display: inline-block;
-    height: 100%;
-    width: 100%;
-}
-.hero-portrait-transparent {
-    background: url("/images/sprites/hero-portrait-transparent.png") no-repeat scroll 0 85px rgba(0, 0, 0, 0);
-    display: block;
-    height: 85px;
-    position: absolute;
-    right: 0;
-    top: 0;
-    width: 108px;
-}
-.hero-portrait-transparent.neutral {
-    background-position: 0 85px;
-}
-.hero-portrait-transparent.druid {
-    background-position: 0 0;
-}
-.hero-portrait-transparent.hunter {
-    background-position: 0 -85px;
-}
-.hero-portrait-transparent.mage {
-    background-position: 0 -170px;
-}
-.hero-portrait-transparent.paladin {
-    background-position: 0 -255px;
-}
-.hero-portrait-transparent.priest {
-    background-position: 0 -340px;
-}
-.hero-portrait-transparent.rogue {
-    background-position: 0 -425px;
-}
-.hero-portrait-transparent.shaman {
-    background-position: 0 -510px;
-}
-.hero-portrait-transparent.warlock {
-    background-position: 0 -595px;
-}
-.hero-portrait-transparent.warrior {
-    background-position: 0 -680px;
-}
-#deck-list .deck-list-item .hero-class {
-    display: block;
-    font-size: 10px;
-    height: 10px;
-    left: 0;
-    line-height: 10px;
-    position: absolute;
-    text-align: center;
-    top: 50px;
-    width: 60px;
-}
-#deck-list .deck-list-item .deck-card-quality-wrapper {
-    display: block;
-    height: auto;
-    left: 200px;
-    position: absolute;
-    top: 10px;
-    width: auto;
-}
-#deck-list .deck-list-item .deck-card-quality {
-    display: block;
-    font-size: 10px;
-    height: 10px;
-    margin: 4px 0;
-    position: relative;
-}
-#deck-list .deck-list-item .deck-card-quality.rare {
+
+.quality.rare {
+    color: #0070DD !important;
+}
+
+.quality.epic {
+    color: #A335EE !important;
+}
+
+.quality.legendary {
+    color: #FF8000 !important;
+}
+
+.mana {
     color: #0070DD;
+	background: url("../images/sprite.png") no-repeat scroll right -34px rgba(0, 0, 0, 0);
+    padding-right: 19px;
+	font-family: Arial,sans-serif;
 }
-#deck-list .deck-list-item .deck-card-quality.epic {
-    color: #A335EE;
+
+.attack {
+	color: #DBAA13;
+	background: url("../images/sprite.png") no-repeat scroll right 0 rgba(0, 0, 0, 0);
+    padding-right: 19px;
+	font-family: Arial,sans-serif;
 }
-#deck-list .deck-list-item .deck-card-quality.legendary {
-    color: #FF8000;
+
+.damage {
+	color: #ACA49D;
+	background: url("../images/sprite.png") no-repeat scroll right -48px rgba(0, 0, 0, 0);
+    padding-right: 19px;
+	font-family: Arial,sans-serif;
 }
-#deck-list .deck-list-item .deck-votes {
-    bottom: 5px;
-    color: #777777;
-    display: block;
-    font-size: 10px;
-    height: 10px;
-    line-height: 10px;
+
+.health{
+	color: #D61D25;
+	background: url("../images/sprite.png") no-repeat scroll right -16px rgba(0, 0, 0, 0);
+    padding-right: 19px;
+	font-family: Arial,sans-serif;
+}
+
+.durability{
+	color: #ACA49D;
+	background: url("../images/sprite.png") no-repeat scroll right -64px rgba(0, 0, 0, 0);
+    padding-right: 19px;
+	font-family: Arial,sans-serif;
+}
+
+
+/* WOWhead Tooltip Image */
+.wowhead-tooltip {
+    overflow: visible !important;
+    visibility: hidden;
+    z-index: 100000006;
+}
+
+.wowhead-tooltip.hearthhead-tooltip-image{
+	
+    left: 64px;
     position: absolute;
-    right: 5px;
+    top: 25px;
+    visibility: visible;
+    width: 200px !important;
+}
+
+.wowhead-tooltip p {
+    background: none no-repeat scroll 4px 4px rgba(0, 0, 0, 0);
+    height: 44px;
+    left: -44px;
+    margin: 0;
+    padding: 0;
+    position: absolute;
+    top: -1px;
+    width: 44px;
+}
+
+.wowhead-tooltip table {
+    border-collapse: collapse;
+    border-spacing: 0;
+    margin: 0;
     width: auto;
 }
-#deck-list .deck-list-item .deck-votes .vote-neutral {
-    color: #FFFFFF;
+
+.wowhead-tooltip table, .wowhead-tooltip td, .wowhead-tooltip th, .wowhead-tooltip tbody {
+    border: 0 none !important;
 }
-#deck-list .deck-list-item .deck-votes .vote-good {
-    color: #00FF00;
-}
-#deck-list .deck-list-item .deck-votes .vote-bad {
-    color: #FF0000;
-}
-.deck-list-item .card-icon {
-    left: 8px;
-    padding-left: 4px;
-    padding-top: 4px;
-    position: absolute;
-    top: 3px;
-}
-.deck-list-item .card-icon .icon-overlay {
-    background-image: url("/images/default_icon_border_medium.png");
-    background-position: center center;
-    background-repeat: no-repeat;
-    display: block;
-    height: 44px;
-    left: 0;
-    position: absolute;
-    top: 0;
-    width: 44px;
-    z-index: 30;
-}
-.mana-values {
-    background-color: #141414;
-    display: block;
-    height: 73px;
-    left: 60px;
-    position: absolute;
-    top: 7px;
-    width: 129px;
-}
-.mana-values .bar-mana {
-    background-color: #FFBA00;
-    bottom: 17px;
-    display: block;
-    height: 50px;
-    opacity: 0.5;
-    position: absolute;
-    width: 13px;
-    z-index: 1;
-}
-.deck-list-item:hover .mana-values .bar-mana {
-    background-color: #FFBA00;
-    opacity: 1;
-}
-.mana-values .bar-mana.cost-0 {
-    left: 0;
-}
-.mana-values .bar-mana.cost-1 {
-    left: 17px;
-}
-.mana-values .bar-mana.cost-2 {
-    left: 33px;
-}
-.mana-values .bar-mana.cost-3 {
-    left: 48px;
-}
-.mana-values .bar-mana.cost-4 {
-    left: 65px;
-}
-.mana-values .bar-mana.cost-5 {
-    left: 81px;
-}
-.mana-values .bar-mana.cost-6 {
-    left: 97px;
-}
-.mana-values .bar-mana.cost-7 {
-    left: 113px;
-}
-.mana-values .overlay {
-    background: url("/images/misc/mana-grid-small.png") no-repeat scroll 0 0 rgba(0, 0, 0, 0);
-    display: block;
-    height: 100%;
-    position: absolute;
-    width: 100%;
-    z-index: 99;
-}
-.hs-ui-button, .hs-ui-cancel {
+
+.wowhead-tooltip.hearthhead-tooltip-image td, .wowhead-tooltip.hearthhead-tooltip-image th {
     background: none repeat scroll 0 0 rgba(0, 0, 0, 0);
-    border: 0 none;
-    cursor: pointer;
-    display: inline-block;
-    height: auto;
-    margin: 0;
-    outline: medium none;
-    overflow: visible;
     padding: 0;
-    vertical-align: middle;
 }
-.hs-ui-button span, .hs-ui-cancel span {
-    cursor: pointer;
-    display: inline-block;
-    font-family: "Lucida Sans Unicode",Arial,Helvetica,sans-serif;
-    font-size: 12px;
-    font-weight: normal;
-    height: 38px;
-    line-height: 38px;
-    margin: 0;
-    outline: medium none;
-    padding: 0;
-    text-align: center;
-    text-decoration: none;
-    text-transform: uppercase;
-    white-space: nowrap;
+.wowhead-tooltip td {
+    padding: 8px 4px 1px 9px;
+    text-align: left;
+    vertical-align: top;
 }
-.button1 span {
-    background-image: url("http://www.hsdeck.com/images/buttons/button-1-1.png");
-    background-repeat: no-repeat;
-    color: #FFBA00;
-}
-.button1 span:hover {
+.wowhead-tooltip td, .wowhead-tooltip th {
+    background: url("../images/tooltip.png") repeat scroll 0 0 rgba(0, 0, 0, 0);
     color: #FFFFFF;
+    font-family: Verdana,sans-serif;
+    font-size: 12px;
+    line-height: 17px;
 }
-.hs-ui-button span span.wide {
-    width: 220px;
+
+.wowhead-tooltip.hearthhead-tooltip-image img.hearthhead-tooltip-image {
+    height: 302px;
+    margin: -25px 0 -15px;
+    width: 200px;
 }
-.hs-ui-button span {
-    background-position: 0 0;
-    padding: 0 0 0 28px;
+
+
+.wowhead-tooltip.hearthhead-tooltip-image img.hearthhead-tooltip-image + table {
+    margin-top: 2px;
 }
-.hs-ui-button span span {
-    background-image: url("http://www.hsdeck.com/images/buttons/button-1-1.png");
-    background-position: 100% -123px;
-    padding: 0 28px 0 0;
+
+
+.wowhead-tooltip.hearthhead-tooltip-image td td {
+    padding: 8px 4px 1px 9px;
 }
-.hs-ui-button.disabled, .ui-button.processing {
-    cursor: default;
+.wowhead-tooltip.hearthhead-tooltip-image td td, .wowhead-tooltip.hearthhead-tooltip-image td th {
+    background: url("../images/tooltip.png") repeat scroll 0 0 rgba(0, 0, 0, 0);
 }
-.hs-ui-button.disabled span, .hs-ui-button.disabled:hover span, .hs-ui-button.disabled.hover span, .hs-ui-button.processing span, .hs-ui-button.processing:hover span, .hs-ui-button.processing.hover span {
-    background-position: 0 -82px;
-    cursor: default;
+
+.q, .q a, .color-q, .wowhead-tooltip .q a {
+    color: #FFD100 !important;
 }
-.hs-ui-button.disabled span span, .hs-ui-button.disabled:hover span span, .hs-ui-button.disabled.hover span span, .hs-ui-button.processing span span, .hs-ui-button.processing:hover span span, .hs-ui-button.processing.hover span span {
-    background-position: 100% -205px;
-    color: #8D9C94;
-    cursor: default;
+
+.wowhead-tooltip.hearthhead-tooltip-image td th {
+    padding: 3px;
 }
