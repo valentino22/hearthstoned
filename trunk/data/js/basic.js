@@ -1,1 +1,1568 @@
-if(typeof $WH=="undefined"){var $WH={}}$WH.$E=function(a){if(!a){if(typeof event!="undefined"){a=event}else{return null}}if(a.which){a._button=a.which}else{a._button=a.button;if($WH.Browser.ie6789&&a._button){if(a._button&4){a._button=2}else{if(a._button&2){a._button=3}}}else{a._button=a.button+1}}a._target=a.target?a.target:a.srcElement;a._wheelDelta=a.wheelDelta?a.wheelDelta:-a.detail;return a};$WH.$A=function(c){var e=[];for(var d=0,b=c.length;d<b;++d){e.push(c[d])}return e};if(!Function.prototype.bind){Function.prototype.bind=function(){var c=this,a=$WH.$A(arguments),b=a.shift();return function(){return c.apply(b,a.concat($WH.$A(arguments)))}}}$WH.bindfunc=function(){args=$WH.$A(arguments);var b=args.shift();var a=args.shift();return function(){return b.apply(a,args.concat($WH.$A(arguments)))}};if(!String.prototype.ltrim){String.prototype.ltrim=function(){return this.replace(/^\s*/,"")}}if(!String.prototype.rtrim){String.prototype.rtrim=function(){return this.replace(/\s*$/,"")}}if(!String.prototype.trim){String.prototype.trim=function(){return this.ltrim().rtrim()}}if(!String.prototype.removeAllWhitespace){String.prototype.removeAllWhitespace=function(){return this.replace("/s+/g","")}}$WH.strcmp=function(d,c){if(d==c){return 0}if(d==null){return -1}if(c==null){return 1}var f=parseFloat(d);var e=parseFloat(c);if(!isNaN(f)&&!isNaN(e)&&f!=e){return f<e?-1:1}if(typeof d=="string"&&typeof c=="string"){return d.localeCompare(c)}return d<c?-1:1};$WH.trim=function(a){return a.replace(/(^\s*|\s*$)/g,"")};$WH.rtrim=function(c,d){var b=c.length;while(--b>0&&c.charAt(b)==d){}c=c.substring(0,b+1);if(c==d){c=""}return c};$WH.sprintf=function(b){var a;for(a=1,len=arguments.length;a<len;++a){b=b.replace("$"+a,arguments[a])}return b};$WH.sprintfa=function(b){var a;for(a=1,len=arguments.length;a<len;++a){b=b.replace(new RegExp("\\$"+a,"g"),arguments[a])}return b};$WH.sprintfo=function(c){if(typeof c=="object"&&c.length){var a=c;c=a[0];var b;for(b=1;b<a.length;++b){c=c.replace("$"+b,a[b])}return c}};$WH.str_replace=function(e,d,c){while(e.indexOf(d)!=-1){e=e.replace(d,c)}return e};$WH.urlencode=function(a){a=encodeURIComponent(a);a=$WH.str_replace(a,"+","%2B");return a};$WH.urlencode2=function(a){a=encodeURIComponent(a);a=$WH.str_replace(a,"%20","+");a=$WH.str_replace(a,"%3D","=");return a};$WH.number_format=function(a){x=(""+parseFloat(a)).split(".");a=x[0];x=x.length>1?"."+x[1]:"";if(a.length<=3){return a+x}return $WH.number_format(a.substr(0,a.length-3))+","+a.substr(a.length-3)+x};$WH.is_array=function(b){return !!(b&&b.constructor==Array)};$WH.in_array=function(c,g,h,e){if(c==null){return -1}if(h){return $WH.in_arrayf(c,g,h,e)}for(var d=e||0,b=c.length;d<b;++d){if(c[d]==g){return d}}return -1};$WH.in_arrayf=function(c,g,h,e){for(var d=e||0,b=c.length;d<b;++d){if(h(c[d])==g){return d}}return -1};$WH.rs=function(){var e=$WH.rs.random;var b="";for(var a=0;a<16;a++){var d=Math.floor(Math.random()*e.length);if(a==0&&d<11){d+=10}b+=e.substring(d,d+1)}return b};$WH.rs.random="0123456789abcdefghiklmnopqrstuvwxyz";$WH.isset=function(a){return typeof window[a]!="undefined"};if(!$WH.isset("console")){console={log:function(){}}}$WH.array_walk=function(d,h,c){var g;for(var e=0,b=d.length;e<b;++e){g=h(d[e],c,d,e);if(g!=null){d[e]=g}}};$WH.array_apply=function(d,h,c){var g;for(var e=0,b=d.length;e<b;++e){h(d[e],c,d,e)}};$WH.array_filter=function(c,g){var e=[];for(var d=0,b=c.length;d<b;++d){if(g(c[d])){e.push(c[d])}}return e};$WH.array_index=function(c,e,g,h){if(!$WH.is_array(c)){return false}if(!c.__R||h){c.__R={};if(!g){g=function(a){return a}}for(var d=0,b=c.length;d<b;++d){c.__R[g(c[d])]=d}}return(e==null?c.__R:!isNaN(c.__R[e]))};$WH.array_compare=function(d,c){if(d.length!=c.length){return false}var g={};for(var f=d.length;f>=0;--f){g[d[f]]=true}var e=true;for(var f=c.length;f>=0;--f){if(g[c[f]]===undefined){e=false}}return e};$WH.array_unique=function(b){var c=[];var e={};for(var d=b.length-1;d>=0;--d){e[b[d]]=1}for(var d in e){c.push(d)}return c};$WH.ge=function(a){if(typeof a!="string"){return a}return document.getElementById(a)};$WH.gE=function(a,b){return a.getElementsByTagName(b)};$WH.ce=function(d,b,e){var a=document.createElement(d);if(b){$WH.cOr(a,b)}if(e){$WH.ae(a,e)}return a};$WH.de=function(a){if(!a||!a.parentNode){return}a.parentNode.removeChild(a)};$WH.ae=function(a,b){if($WH.is_array(b)){$WH.array_apply(b,a.appendChild.bind(a));return b}else{return a.appendChild(b)}};$WH.aef=function(a,b){return a.insertBefore(b,a.firstChild)};$WH.ee=function(a,b){if(!b){b=0}while(a.childNodes[b]){a.removeChild(a.childNodes[b])}};$WH.ct=function(a){return document.createTextNode(a)};$WH.st=function(a,b){if(a.firstChild&&a.firstChild.nodeType==3){a.firstChild.nodeValue=b}else{$WH.aef(a,$WH.ct(b))}};$WH.nw=function(a){a.style.whiteSpace="nowrap"};$WH.rf=function(){return false};$WH.rf2=function(a){a=$WH.$E(a);if(a.ctrlKey||a.shiftKey||a.altKey||a.metaKey){return}return false};$WH.tb=function(){this.blur()};$WH.aE=function(b,c,a){if(b.addEventListener){b.addEventListener(c,a,false)}else{if(b.attachEvent){b.attachEvent("on"+c,a)}}};$WH.dE=function(b,c,a){if(b.removeEventListener){b.removeEventListener(c,a,false)}else{if(b.detachEvent){b.detachEvent("on"+c,a)}}};$WH.sp=function(a){if(!a){a=event}if($WH.Browser.ie6789){a.cancelBubble=true}else{a.stopPropagation()}};$WH.sc=function(h,j,d,f,g){var e=new Date();var c=h+"="+escape(d)+"; ";e.setDate(e.getDate()+j);c+="expires="+e.toUTCString()+"; ";if(f){c+="path="+f+"; "}if(g){c+="domain="+g+"; "}document.cookie=c;$WH.gc(h);$WH.gc.C[h]=d};$WH.dc=function(a){$WH.sc(a,-1);$WH.gc.C[a]=null};$WH.gc=function(f){if($WH.gc.I==null){var e=unescape(document.cookie).split("; ");$WH.gc.C={};for(var c=0,a=e.length;c<a;++c){var g=e[c].indexOf("="),b,d;if(g!=-1){b=e[c].substr(0,g);d=e[c].substr(g+1)}else{b=e[c];d=""}$WH.gc.C[b]=d}$WH.gc.I=1}if(!f){return $WH.gc.C}else{return $WH.gc.C[f]}};$WH.ns=function(a){if($WH.Browser.ie6789){a.onfocus=$WH.tb;a.onmousedown=a.onselectstart=a.ondragstart=$WH.rf}};$WH.eO=function(b){for(var a in b){delete b[a]}};$WH.dO=function(a){function b(){}b.prototype=a;return new b};$WH.cO=function(c,a){for(var b in a){if(a[b]!==null&&typeof a[b]=="object"&&a[b].length){c[b]=a[b].slice(0)}else{c[b]=a[b]}}return c};$WH.cOr=function(c,a){for(var b in a){if(typeof a[b]=="object"){if(a[b].length){c[b]=a[b].slice(0)}else{if(!c[b]){c[b]={}}$WH.cOr(c[b],a[b])}}else{c[b]=a[b]}}return c};$WH.Browser={ie:!!(window.attachEvent&&!window.opera),opera:!!window.opera,safari:navigator.userAgent.indexOf("Safari")!=-1,firefox:navigator.userAgent.indexOf("Firefox")!=-1,chrome:navigator.userAgent.indexOf("Chrome")!=-1};$WH.Browser.ie9=$WH.Browser.ie&&navigator.userAgent.indexOf("MSIE 9.0")!=-1;$WH.Browser.ie8=$WH.Browser.ie&&navigator.userAgent.indexOf("MSIE 8.0")!=-1&&!$WH.Browser.ie9;$WH.Browser.ie7=$WH.Browser.ie&&navigator.userAgent.indexOf("MSIE 7.0")!=-1&&!$WH.Browser.ie8;$WH.Browser.ie6=$WH.Browser.ie&&navigator.userAgent.indexOf("MSIE 6.0")!=-1&&!$WH.Browser.ie7;$WH.Browser.ie67=$WH.Browser.ie6||$WH.Browser.ie7;$WH.Browser.ie678=$WH.Browser.ie67||$WH.Browser.ie8;$WH.Browser.ie6789=$WH.Browser.ie678||$WH.Browser.ie9;$WH.OS={windows:navigator.appVersion.indexOf("Windows")!=-1,mac:navigator.appVersion.indexOf("Macintosh")!=-1,linux:navigator.appVersion.indexOf("Linux")!=-1};$WH.supportsLocalStorage=function(){try{return"localStorage" in window&&window.localStorage!==null}catch(a){return false}};$WH.g_getWindowSize=function(){var a=0,b=0;if(document.documentElement&&(document.documentElement.clientWidth||document.documentElement.clientHeight)){a=document.documentElement.clientWidth;b=document.documentElement.clientHeight}else{if(document.body&&(document.body.clientWidth||document.body.clientHeight)){a=document.body.clientWidth;b=document.body.clientHeight}else{if(typeof window.innerWidth=="number"){a=window.innerWidth;b=window.innerHeight}}}return{w:a,h:b}};$WH.g_getScroll=function(){var a=0,b=0;if(typeof(window.pageYOffset)=="number"){a=window.pageXOffset;b=window.pageYOffset}else{if(document.body&&(document.body.scrollLeft||document.body.scrollTop)){a=document.body.scrollLeft;b=document.body.scrollTop}else{if(document.documentElement&&(document.documentElement.scrollLeft||document.documentElement.scrollTop)){a=document.documentElement.scrollLeft;b=document.documentElement.scrollTop}}}return{x:a,y:b}};$WH.g_getCursorPos=function(c){var a,d;if(window.innerHeight){a=c.pageX;d=c.pageY}else{var b=$WH.g_getScroll();a=c.clientX+b.x;d=c.clientY+b.y}return{x:a,y:d}};$WH.ac=function(c,d){var a=0,g=0,b;while(c){a+=c.offsetLeft;g+=c.offsetTop;b=c.parentNode;while(b&&b!=c.offsetParent&&b.offsetParent){if(b.scrollLeft||b.scrollTop){a-=(b.scrollLeft|0);g-=(b.scrollTop|0);break}b=b.parentNode}c=c.offsetParent}if($WH.isset("Lightbox")&&Lightbox.isVisible()){d=true}if(d){var f=$WH.g_getScroll();a+=f.x;g+=f.y}var e=[a,g];e.x=a;e.y=g;return e};$WH.g_scrollTo=function(c,b){var m,l=$WH.g_getWindowSize(),o=$WH.g_getScroll(),j=l.w,e=l.h,g=o.x,d=o.y;c=$WH.ge(c);if(b==null){b=[]}else{if(typeof b=="number"){b=[b]}}m=b.length;if(m==0){b[0]=b[1]=b[2]=b[3]=0}else{if(m==1){b[1]=b[2]=b[3]=b[0]}else{if(m==2){b[2]=b[0];b[3]=b[1]}else{if(m==3){b[3]=b[1]}}}}m=$WH.ac(c);var a=m[0]-b[3],h=m[1]-b[0],k=m[0]+c.offsetWidth+b[1],f=m[1]+c.offsetHeight+b[2];if(k-a>j||a<g){g=a}else{if(k-j>g){g=k-j}}if(f-h>e||h<d){d=h}else{if(f-e>d){d=f-e}}scrollTo(g,d)};$WH.g_createReverseLookupJson=function(b){var c={};for(var a in b){c[b[a]]=a}return c};$WH.g_getLocaleFromDomain=function(b){var d=$WH.g_getLocaleFromDomain.L;if(b&&(typeof b=="string")){var c=b.split(".");for(var a=0;a<c.length;a++){if(c[a] in d){return d[c[a]]}}}return 0};$WH.g_getLocaleFromDomain.L={fr:2,de:3,es:6,ru:7,pt:8,www:0};$WH.g_getDomainFromLocale=function(d){var g;if($WH.g_getDomainFromLocale.L){g=$WH.g_getDomainFromLocale.L}else{g=$WH.g_getDomainFromLocale.L=$WH.g_createReverseLookupJson($WH.g_getLocaleFromDomain.L);if((typeof g_dev!="undefined")&&g_dev){var f="",b="",e;e=document.location.hostname.split(".");e.splice(-2,2);for(var a=0;a<e.length;a++){if(e[a] in $WH.g_getLocaleFromDomain.L){continue}if(/staging\d*/.test(e[a])){f=f+"."+e[a]}else{b=b+e[a]+"."}}for(var c in $WH.g_getDomainFromLocale.L){if(c==0){$WH.g_getDomainFromLocale.L[c]=(b+f).replace(/\.+/,".").replace(/^\./,"").replace(/\.$/,"")}else{$WH.g_getDomainFromLocale.L[c]=b+$WH.g_getDomainFromLocale.L[c]+f}}}}return(g[d]?g[d]:"www")};$WH.g_getIdFromTypeName=function(a){var b=$WH.g_getIdFromTypeName.L;return(b[a]?b[a]:-1)};$WH.g_getIdFromTypeName.L={npc:1,object:2,item:3,itemset:4,quest:5,spell:6,zone:7,faction:8,pet:9,achievement:10,title:11,statistic:16,"transmog-set":101,petability:200,"hearthstone/card":220,card:220,deck:104};$WH.g_ajaxIshRequest=function(b,d){var c=document.getElementsByTagName("head")[0];if(d){$WH.ae(c,$WH.ce("script",{type:"text/javascript",src:b}));return}var a=$WH.g_getGets();if(a.refresh!=null){if(a.refresh.length){b+=("&refresh="+a.refresh)}else{b+="&refresh"}}if(a.locale!=null){b+="&locale="+a.locale}if(a.ptr!=null){b+="&ptr"}$WH.ae(c,$WH.ce("script",{type:"text/javascript",src:b,charset:"utf8"}))};$WH.g_getGets=function(){if($WH.g_getGets.C!=null){return $WH.g_getGets.C}var b=$WH.g_getQueryString();var a=$WH.g_parseQueryString(b);$WH.g_getGets.C=a;return a};$WH.g_getQueryString=function(){var a="";if(location.pathname){a+=location.pathname.substr(1)}if(location.search){if(location.pathname){a+="&"}a+=location.search.substr(1)}return a};$WH.g_parseQueryString=function(e){e=decodeURIComponent(e);var d=e.split("&");var c={};for(var b=0,a=d.length;b<a;++b){$WH.g_splitQueryParam(d[b],c)}return c};$WH.g_splitQueryParam=function(c,d){var e=c.indexOf("=");var a;var b;if(e!=-1){a=c.substr(0,e);b=c.substr(e+1)}else{a=c;b=""}d[a]=b};$WH.g_createRect=function(d,c,a,b){return{l:d,t:c,r:d+a,b:c+b}};$WH.g_intersectRect=function(d,c){return !(d.l>=c.r||c.l>=d.r||d.t>=c.b||c.t>=d.b)};$WH.g_isRemote=function(){return $WH.g_getSite()=="remote"};$WH.g_isWowhead=function(){return typeof g_wowhead!="undefined"&&g_wowhead};$WH.g_isHearthhead=function(){return typeof g_hearthhead!="undefined"&&g_hearthhead};$WH.g_isThottbot=function(){return typeof g_thottbot!="undefined"&&g_thottbot};$WH.g_getSite=function(){if($WH.g_isWowhead()){return"wowhead"}if($WH.g_isHearthhead()){return"hearthhead"}if($WH.g_isThottbot()){return"thottbot"}return"remote"};$WH.g_getConfidenceInterval=function(b,a){if(b==0&&a==0){return 0}var e=1.96,d=1*b/a;var c=(d+e*e/(2*a)-e*Math.sqrt((d*(1-d)+e*e/(4*a))/a))/(1+e*e/a);if(isNaN(c)||c==0){return(a*-1+b)/10000}return c};$WH.g_convertRatingToPercent=function(b,d,h,a){var f=$WH.g_convertRatingToPercent.RB,e=$WH.g_convertRatingToPercent.LH,g=$WH.g_convertRatingToPercent.LT;if(b<0){b=1}else{if(b>90){b=90}}if((d==12||d==13||d==14||d==15)&&b<34){b=34}if((d==28||d==36)&&(a==2||a==6||a==7||a==11)){f[d]/=1.3}if(h<0){h=0}if(g&&g[d]&&(b>=80)&&(b-80<g[d].length)){return h/g[d][b-80]}var c;if(!f||f[d]==null){c=0}else{var j;if(b>80){j=e[b]}else{if(b>70){j=(82/52)*Math.pow((131/63),((b-70)/10))}else{if(b>60){j=(82/(262-3*b))}else{if(b>10){j=((b-8)/52)}else{j=2/52}}}}c=h/f[d]/j}return c};$WH.g_statToJson={0:"mana",1:"health",3:"agi",4:"str",5:"int",6:"spi",7:"sta",8:"energy",9:"rage",10:"focus",13:"dodgertng",14:"parryrtng",16:"mlehitrtng",17:"rgdhitrtng",18:"splhitrtng",19:"mlecritstrkrtng",20:"rgdcritstrkrtng",21:"splcritstrkrtng",22:"_mlehitrtng",23:"_rgdhitrtng",24:"_splhitrtng",25:"_mlecritstrkrtng",26:"_rgdcritstrkrtng",27:"_splcritstrkrtng",28:"mlehastertng",29:"rgdhastertng",30:"splhastertng",31:"hitrtng",32:"critstrkrtng",33:"_hitrtng",34:"_critstrkrtng",35:"resirtng",36:"hastertng",37:"exprtng",38:"atkpwr",39:"rgdatkpwr",41:"splheal",42:"spldmg",43:"manargn",44:"armorpenrtng",45:"splpwr",46:"healthrgn",47:"splpen",49:"mastrtng",50:"armor",51:"firres",52:"frores",53:"holres",54:"shares",55:"natres",56:"arcres",57:"pvppower"};$WH.g_jsonToStat={};for(var i in $WH.g_statToJson){$WH.g_jsonToStat[$WH.g_statToJson[i]]=i}$WH.g_individualToGlobalStat={16:31,17:31,18:31,19:32,20:32,21:32,22:33,23:33,24:33,25:34,26:34,27:34,28:36,29:36,30:36};$WH.g_convertScalingFactor=function(c,b,g,d,k){var f=$WH.g_convertScalingFactor.SV;var e=$WH.g_convertScalingFactor.SD;if(!f[c]){if(g_user.roles&U_GROUP_ADMIN){alert("There are no item scaling values for level "+c)}return(k?{}:0)}var j={},h=f[c],a=e[g];if(!a||!(d>=0&&d<=9)){j.v=h[b]}else{j.n=$WH.g_statToJson[a[d]];j.s=a[d];j.v=Math.floor(h[b]*a[d+10]/10000)}return(k?j:j.v)};if(!$WH.wowheadRemote){$WH.g_ajaxIshRequest("/data=item-scaling")}$WH.g_convertScalingSpell=function(b,g){var j={},f=$WH.g_convertScalingSpell.SV,d=$WH.g_convertScalingSpell.SD,a,k;if(!d[g]){if(g_user.roles&U_GROUP_ADMIN){alert("There are no spell scaling distributions for dist "+g)}return j}if(!f[b]){if(g_user.roles&U_GROUP_ADMIN){alert("There are no spell scaling values for level "+b)}return j}a=d[g];if(!a[3]){if(g_user.roles&U_GROUP_ADMIN){alert("This spell should not scale at all")}return j}else{if(a[3]==-1){if(g_user.roles&U_GROUP_ADMIN){alert("This spell should use the generic scaling distribution 12")}a[3]=12}}if(!f[b][a[3]-1]){if(g_user.roles&U_GROUP_ADMIN){alert("Unknown category for spell scaling "+a[3])}return j}if(a[15]>0&&a[15]<b){b=a[15]}k=f[b][a[3]-1];if(a[13]){k*=(Math.min(b,a[14])+(a[13]*Math.max(0,b-a[14])))/b}j.cast=Math.min(a[1],a[1]>0&&b>1?a[0]+(((b-1)*(a[1]-a[0]))/(a[2]-1)):a[0]);j.effects={};for(var c=0;c<3;++c){var l=a[4+c],h=a[7+c],e=a[10+c],m=j.effects[c+1]={};m.avg=l*k*(a[1]>0?j.cast/a[1]:1);m.min=Math.round(m.avg)-Math.floor(m.avg*h/2);m.max=Math.round(m.avg)+Math.floor(m.avg*h/2);m.pts=Math.round(e*k);m.avg=Math.max(Math.ceil(l),Math.round(m.avg))}j.cast=Math.round(j.cast/10)/100;return j};if(!$WH.wowheadRemote){$WH.g_ajaxIshRequest("/data=spell-scaling")}$WH.g_getDataSource=function(){if($WH.isset("g_pageInfo")){switch(g_pageInfo.type){case 3:if($WH.isset("g_items")){return g_items}case 6:if($WH.isset("g_spells")){return g_spells}case 200:if($WH.isset("g_petabilities")){return g_petabilities}case 220:if($WH.isset("g_hearthstone_cards")){return g_hearthstone_cards}}}return[]};$WH.g_setJsonItemLevel=function(s,a,g){if(g&&((g.scalingcategory-11)>0)){var m=g.maxlvlscaling?Math.min(a,g.maxlvlscaling):a;var e=$WH.g_getSpellScalingValue(g.scalingcategory,m);for(var p=1;p<3;++p){var l=g["itemenchspell"+p];var b=g["itemenchtype"+p];var n=$WH.g_statToJson[l];if((b==5)&&s[n]){var c=g["damage"+p];if(c){s[n]=Math.round(e*c)}}}if(g.allstats){for(var r in s){s[r]=Math.round(e*g.damage1)}}}if(!s.scadist||!s.scaflags){return}s.bonuses=s.bonuses||{};var j=s.scaflags&255,h=(s.scaflags>>8)&255,o=(s.scaflags&(1<<16))!=0,d=(s.scaflags&(1<<17))!=0,u=(s.scaflags&(1<<18))!=0,t;switch(j){case 5:case 1:case 7:case 17:t=7;break;case 3:case 12:t=8;break;case 16:case 11:case 14:t=9;break;case 15:t=10;break;case 23:case 21:case 22:case 13:t=11;break;default:t=-1}if(t>=0){for(var p=0;p<10;++p){var f=$WH.g_convertScalingFactor(a,t,s.scadist,p,1);if(f.n){s[f.n]=f.v}s.bonuses[f.s]=f.v}}if(u){s.splpwr=s.bonuses[45]=$WH.g_convertScalingFactor(a,6)}if(o){switch(j){case 3:s.armor=$WH.g_convertScalingFactor(a,11+h);break;case 5:s.armor=$WH.g_convertScalingFactor(a,15+h);break;case 1:s.armor=$WH.g_convertScalingFactor(a,19+h);break;case 7:s.armor=$WH.g_convertScalingFactor(a,23+h);break;case 16:s.armor=$WH.g_convertScalingFactor(a,28);break;case 14:s.armor=$WH.g_convertScalingFactor(a,29);break;default:s.armor=0}}if(d){var k=(s.mledps?"mle":"rgd"),q;switch(j){case 23:case 21:case 22:case 13:s.dps=s[k+"dps"]=$WH.g_convertScalingFactor(a,u?2:0);q=0.3;break;case 17:s.dps=s[k+"dps"]=$WH.g_convertScalingFactor(a,u?3:1);q=0.2;break;case 15:s.dps=s[k+"dps"]=$WH.g_convertScalingFactor(a,h==19?5:4);q=0.3;break;default:s.dps=s[k+"dps"]=0;q=0}s.dmgmin=s[k+"dmgmin"]=Math.floor(s.dps*s.speed*(1-q));s.dmgmax=s[k+"dmgmax"]=Math.floor(s.dps*s.speed*(1+q))}};$WH.g_setJsonSpellLevel=function(a,b){if(!a.scadist){return}$WH.cO(a,$WH.g_convertScalingSpell(b,a.scadist))};$WH.g_scaleItemEnchantment=function(f,c){var h=f.enchantment;if(f.scalinginfo&&(f.scalinginfo.scalingcategory-11)>0){var e=h.match(/\d+/g);if(e){var g=f.scalinginfo.maxlvlscaling?Math.min(c,f.scalinginfo.maxlvlscaling):c;var b=$WH.g_getSpellScalingValue(f.scalinginfo.scalingcategory,g);for(var d=0;d<e.length;++d){var a=f.scalinginfo["damage"+(d+1)];if(a){h=h.replace(e[d],Math.round(b*a))}}}}return h};$WH.g_getItemRandPropPointsType=function(a){switch(a.classs){case 2:switch(a.subclass){case 1:case 5:case 6:case 8:case 10:case 3:case 2:case 18:return 0;case 16:return 4;default:return 3}break;case 4:switch(a.slot){case 1:case 5:case 7:return 0;case 3:case 6:case 8:case 10:case 12:return 1;case 2:case 22:case 23:case 11:case 16:case 9:case 14:return 2;default:return -1}break;default:return -1}};$WH.g_applyStatModifications=function(d,u,m,l,v){var r=$WH.dO(d);if(r.subitems&&r.subitems[u]){for(var G in r.subitems[u].jsonequip){if(!r.hasOwnProperty(G)){r[G]=0}r[G]+=r.subitems[u].jsonequip[G]}}if($WH.g_applyStatModifications.ScalingData.hasOwnProperty("AL")&&((l&&d.upgrades&&d.upgrades[l-1])||v)){var g=$WH.g_applyStatModifications.ScalingData.AV,E=$WH.g_applyStatModifications.ScalingData.SV,e=$WH.g_applyStatModifications.ScalingData.AL;r.level=v?$WH.g_applyStatModifications.ITEM_CHALLENGEMODE_LEVEL:(d.level+d.upgrades[l-1]);var t=r.level-d.level;var s=Math.pow(1.15,t/15);var F=$WH.g_getItemRandPropPointsType(r);var I=E[r.level];var c=0;if(F!=-1&&r.quality>1&&r.quality<6){var j=(r.quality==5)?4:r.quality;var D=(j%2)*5+F;c=I[D]?I[D]:0}var f=I[15];for(var y in $WH.g_statToJson){var p=$WH.g_statToJson[y];if(r[p]){if(p!="armor"){var A=0;var h=0;if(r.statsInfo.hasOwnProperty(y)){A=parseFloat(r.statsInfo[y].socketMult);h=parseInt(r.statsInfo[y].alloc)}var k=A*f;if(h&&c>0){r[p]=Math.round((h/10000)*c-k)}else{r[p]=Math.floor(((r[p]+k)*s)-k)}}if(p=="armor"&&g[r.level]){var o=(r.subclass==-6)?1:r.subclass;if($WH.in_array([1,2,3,4],o)!=-1){var b=g[r.level][11+r.quality];var a=g[r.level][o-1];var w=e[r.slot][o];r[p]=Math.floor(a*b*w+0.5)}if(r.subclass==6){r[p]=g[r.level][4+r.quality]}}}}if(r.dps){var q=["dps","mledps","rgddps"];var z=["dmgmin1","mledmgmin","rgddmgmin","dmgmax1","mledmgmax","rgddmgmax"];var H=r.dps*s;var n=Math.floor(H*r.speed*(1-r.damagerange/2));var C=Math.round(H*r.speed*(1+r.damagerange/2))+1;for(var y in q){if(r[q[y]]){r[q[y]]=parseFloat(H.toFixed(1))}}for(var y in z){if(r[z[y]]){if(z[y].indexOf("max")!=-1){r[z[y]]=C}else{r[z[y]]=n}}}}}if(m){var B=$WH.g_getJsonReforge(r,m);if(B.amount){r[B.s1]-=B.amount;r[B.s2]=B.amount}}return r};$WH.g_applyStatModifications.ITEM_CHALLENGEMODE_LEVEL=463;$WH.g_getJsonReforge=function(b,c){if(!c){if(!$WH.g_reforgeStats){return[]}b.__reforge={};b.__reforge.all=[];for(var c in $WH.g_reforgeStats){var d=$WH.g_getJsonReforge(b,c);if(d.amount){b.__reforge.all.push(d)}}return b.__reforge.all}if(!$WH.g_reforgeStats||!$WH.g_reforgeStats[c]){return{}}b.__statidx={};for(var a in b){if($WH.g_individualToGlobalStat[$WH.g_jsonToStat[a]]){b.__statidx[$WH.g_individualToGlobalStat[$WH.g_jsonToStat[a]]]=b[a]}else{b.__statidx[$WH.g_jsonToStat[a]]=b[a]}}if(!b.__reforge){b.__reforge={}}var d=b.__reforge[c]=$WH.dO($WH.g_reforgeStats[c]);b.__reforge[c].amount=Math.floor(d.v*(b.__statidx[d.i1]&&!b.__statidx[d.i2]?b.__statidx[d.i1]:0));return b.__reforge[c]};$WH.g_getJsonItemEnchantMask=function(a){if(a.classs==2&&a.subclass==19){return 1<<(21-1)}return 1<<(a.slot-1)};$WH.g_setTooltipLevel=function(m,a,q){var n=typeof m;if(n=="number"){var k=$WH.g_getDataSource();if(k[m]&&k[m][(q?"buff_":"tooltip_")+Locale.getName()]){m=k[m][(q?"buff_":"tooltip_")+Locale.getName()]}else{return m}}else{if(n!="string"){return m}}m=m.replace(/<!--(gem|ee)(\d+):(\d+):(\d+):(\d+):(\d+):(\d+)-->([^<]*)<\/span>/gi,function(j,C,B,v,u,A,z,w,y){var s={enchantment:y,scalinginfo:{scalingcategory:B,minlvlscaling:v,maxlvlscaling:u,damage1:A/1000,damage2:z/1000,damage3:w/1000}};var t=$WH.g_scaleItemEnchantment(s,a);return"<!--"+C+"-->"+t+"</span>"});n=m.match(/<!--\?([0-9-:]*)-->/);if(!n){return m}n=n[1].split(":");var a=Math.min(parseInt(n[2]),Math.max(parseInt(n[1]),a)),d=parseInt(n[4])||0;if(d){if(!m.match(/<!--pts\d:\d:\d+(?:\.\d+)?:\d+-->/g)&&!(d<0)){var p=parseInt(n[5])||0,e=m.match(/<!--spd-->(\d\.\d+)/);if(e){e=parseFloat(e[1])||0}var o={scadist:d,scaflags:p,speed:e};$WH.g_setJsonItemLevel(o,a);m=m.replace(/(<!--asc(\d+)-->)([^<]+)/,function(t,j,s){n=s;if(a<40&&(s==3||s==4)){--n;return j+g_itemset_types[n]}else{return t}});m=m.replace(/(<!--dmg-->)\d+(\D+)\d+/,function(t,j,s){return j+o.dmgmin+s+o.dmgmax});m=m.replace(/(<!--dps-->\D*?)(\d+\.\d)/,function(s,j){return j+o.dps.toFixed(1)});m=m.replace(/(<!--amr-->)\d+/,function(s,j){return j+o.armor});m=m.replace(/<span><!--stat(\d+)-->[-+]\d+(\D*?)<\/span>(<!--e-->)?(<!--ps-->)?(<br ?\/?>)?/gi,function(v,s,j,y,z,t){var u,w=o.bonuses[s];if(w){w=(w>0?"+":"-")+w;u="";t=(t?"<br />":"")}else{w="+0";u=' style="display: none"';t=(t?"<!--br-->":"")}return"<span"+u+"><!--stat"+s+"-->"+w+j+"</span>"+(y||"")+(z||"")+t});m=m.replace(/<span class="q2">(.*?)<!--rtg(\d+)-->\d+(.*?)<\/span>(<br \/>)?/gi,function(j,u,w,z,v,s,A){var t,y=o.bonuses[$WH.g_individualToGlobalStat[w]||w];if(y){t="";A=(A?"<br />":"")}else{t=' style="display: none"';A=(A?"<!--br-->":"")}return'<span class="q2"'+t+">"+u+"<!--rtg"+w+"-->"+y+z+"</span>"+A})}else{if(d>0){var o={scadist:d};$WH.g_setJsonSpellLevel(o,a);m=m.replace(/<!--cast-->\d+\.\d+/,"<!--cast-->"+o.cast);if(o.effects){m=$WH.g_adjustSpellPoints(m,o.effects);if(this.modified){for(var r in this.modified[1]){var h=this.modified[1][r];for(var f=0;f<h.length;++f){h[f][0]=$WH.g_adjustSpellPoints(h[f][0],o.effects);h[f][1]=$WH.g_adjustSpellPoints(h[f][1],o.effects)}}}}}else{var b=-d;var l=$WH.g_getSpellScalingValue(b,a);for(var g=0;g<3;++g){var c=n[5+g]/1000;m=m.replace(new RegExp("<!--gem"+(g+1)+"-->(.+?)<"),"<!--gem"+(g+1)+"-->"+Math.round(l*c)+"<")}}}}m=m.replace(/<!--ppl(\d+):(\d+):(\d+):(\d+)-->\s*\d+/gi,function(t,j,s,u,v){return"<!--ppl"+j+":"+s+":"+u+":"+v+"-->"+Math.round(parseInt(u)+(Math.min(Math.max(a,j),s)-j)*v/100)});m=m.replace(/(<!--rtg%(\d+)-->)([\.0-9]+)/g,function(t,j,u,s){n=m.match(new RegExp("<!--rtg"+u+"-->(\\d+)"));if(!n){return t}return j+Math.round($WH.g_convertRatingToPercent(a,u,n[1])*100)/100});m=m.replace(/(<!--\?\d+:\d+:\d+:)\d+/,"$1"+a);m=m.replace(/<!--lvl-->\d+/g,"<!--lvl-->"+a);return m};$WH.g_getSpellScalingValue=function(b,c){var a=$WH.g_convertScalingSpell?$WH.g_convertScalingSpell.SV:null;if(!a){return 0}return a[c][b-1]};$WH.g_adjustSpellPoints=function(d,c){for(var b=1;b<4;++b){var a=c[b];d=d.replace(new RegExp("<!--pts"+b+":0:0:(\\d+)-->(.+?)<","g"),"<!--pts"+b+":0:0:$1-->"+(a.min==a.max?a.avg:a.min+" to "+a.max)+"<");d=d.replace(new RegExp("<!--pts"+b+":1:0:(\\d+)-->(.+?)<","g"),"<!--pts"+b+":1:0:$1-->"+a.min+"<");d=d.replace(new RegExp("<!--pts"+b+":2:0:(\\d+)-->(.+?)<","g"),"<!--pts"+b+":2:0:$1-->"+a.max+"<");d=d.replace(new RegExp("<!--pts"+b+":3:(\\d+(?:\\.\\d+)?):(\\d+)-->(.+?)<","g"),function(g,f,e){return"<!--pts"+b+":3:"+f+":"+e+"-->"+(a.avg*f)+"<"});d=d.replace(new RegExp("<!--pts"+b+":4:0:(\\d+)-->(.+?)<","g"),"<!--pts"+b+":4:0:$1-->"+a.pts+"<")}return d};$WH.g_setTooltipSpells=function(h,e,g,c){var l={},j="<!--sp([0-9]+):[01]-->.*?<!--sp\\1-->",d;if(e==null){e=[]}if(c==null){c={}}for(var b=0;b<e.length;++b){l[e[b]]=1}if(d=h.match(new RegExp(j,"g"))){for(var b=0;b<d.length;++b){var a=d[b].match(j)[1];l[a]=(l[a]|0);if(c[a]==null){c[a]=-1}c[a]++;if(g[a]==null||g[a][c[a]]==null||g[a][c[a]][l[a]]==null){continue}var f=g[a][c[a]][l[a]];f=$WH.g_setTooltipSpells(f,e,g,c);if(l[a]&&!g[a][c[a]][0]&&(b<(d.length-1))&&(h.indexOf(d[b]+d[b+1])!=-1)){var k=d[b+1].match(j)[1];l[k]=(l[k]|0);h=h.replace(d[b+1],"<!--sp"+k+":"+l[k]+"-->"+f+"<!--sp"+k+"-->");continue}h=h.replace(d[b],"<!--sp"+a+":"+l[a]+"-->"+f+"<!--sp"+a+"-->")}}return h};$WH.g_enhanceTooltip=function(j,e,f,l,A,m,a,h,s,r,p,q,n){var C=typeof j,k,o;this._knownSpells=m;if(C=="number"){var b=$WH.g_getDataSource();o=j;var v="tooltip_";if(A){v="buff_"}if(q){v="tooltip_premium_"}if(n){v="text_"}if(b[o]&&b[o][v+Locale.getName()]){j=b[o][v+Locale.getName()+(h?("_"+h):"")];k=b[o][(A?"buff":"")+"spells_"+Locale.getName()];this._rppmModList=b[o]["rppmmod"];if(k){j=$WH.g_setTooltipSpells(j,m,k)}}else{return j}}else{if(C!="string"){return j}}if(f){var B=$WH.g_getGets();if(B.lvl){j=$WH.g_setTooltipLevel(j,B.lvl,A)}}if(e){j=j.replace(/<span class="q2"><!--addamr(\d+)--><span>.*?<\/span><\/span>/i,function(E,F){return'<span class="q2 tip" onmouseover="$WH.Tooltip.showAtCursor(event, $WH.sprintf(LANG.tooltip_armorbonus, '+F+'), 0, 0, \'q\')" onmousemove="$WH.Tooltip.cursorUpdate(event)" onmouseout="$WH.Tooltip.hide()">'+E+"</span>"});j=j.replace(/\(([^\)]*?<!--lvl-->[^\(]*?)\)/gi,function(F,E){return'(<a href="javascript:;" onmousedown="return false" class="tip" style="color: white; cursor: pointer" onclick="$WH.g_staticTooltipLevelClick(this, null, 0)" onmouseover="$WH.Tooltip.showAtCursor(event, \'<span class=\\\'q2\\\'>\' + LANG.tooltip_changelevel + \'</span>\')" onmousemove="$WH.Tooltip.cursorUpdate(event)" onmouseout="$WH.Tooltip.hide()">'+E+"</a>)"})}if(l&&Slider){if(A&&A.slider){A.bufftip=this}else{var C=j.match(/<!--\?(\d+):(\d+):(\d+):(\d+)/);if(C&&C[2]!=C[3]){this.slider=Slider.init(l,{minValue:parseInt(C[2]),maxValue:parseInt(C[3]),onMove:$WH.g_tooltipSliderMove.bind(this)});Slider.setValue(this.slider,parseInt(C[4]));this.slider.onmouseover=function(E){$WH.Tooltip.showAtCursor(E,LANG.tooltip_changelevel2,0,0,"q2")};this.slider.onmousemove=$WH.Tooltip.cursorUpdate;this.slider.onmouseout=$WH.Tooltip.hide;this.slider.input.onmouseover=function(E){$WH.Tooltip.showAtCursor(E,LANG.tooltip_changelevel,0,0,"q2")};this.slider.input.onmousemove=$WH.Tooltip.cursorUpdate;this.slider.input.onmouseout=$WH.Tooltip.hide}}}if(a){if(A&&A.modified){A.bufftip=this}else{for(var t in k){if(!g_spells[t]||$WH.in_array(m,t)!=-1){continue}$(a).append('<input type="checkbox" id="known-'+t+'" />').append('<label for="known-'+t+'"><a rel="spell='+t+"&know="+t+'">'+g_spells[t]["name_"+Locale.getName()]+(g_spells[t]["rank_"+Locale.getName()]?" ("+g_spells[t]["rank_"+Locale.getName()]+")":"")+"</a></label>").append("<br />");$("#known-"+t).change($WH.g_tooltipSpellsChange.bind(this))}}this.modified=[a,k,m];$(a).toggle(!$(a).is(":empty"))}if(p){var d=j.match(/<!--rppm-->(\d+(?:\.\d+)?)<!--rppm-->/);if(d){var D=$("#rppm"+o);if(this._rppmModList.hasOwnProperty(4)){this._rppmModBase=parseFloat(d[1]);if(D.is(":empty")){this._rppmSpecModList=this._rppmModList[4];this._rppmSpecModList.splice(0,0,{spec:-1,modifiervalue:0,filename:""});D.append("<h3>"+LANG.realppmmodifiers+"</h3>");for(var t in this._rppmSpecModList){var w=Icon.create(this._rppmSpecModList[t]["filename"],0,null);w.style.display="inline-block";w.style.verticalAlign="middle";var c=$('<input name="rppmmod" type="radio" id="rppm-'+t+'" />');c.get(0).checked=(this._rppmSpecModList[t]["spec"]==-1?true:false);D.append(c).append(this._rppmSpecModList[t]["spec"]==-1?"":w).append('<label for="rppm-'+t+'"> <a>'+(this._rppmSpecModList[t]["spec"]==-1?LANG.finone:g_chr_specs[this._rppmSpecModList[t]["spec"]])+"</a></label>").append("<br />");var u=this;$("#rppm-"+t).change(function(){$WH.g_tooltipRPPMChange.call(this,u)})}}else{var g=this._rppmModBase;var z=this._rppmSpecModList;j=j.replace(/<!--rppm-->(\[?)(\d+(?:\.\d+)?)([^<]*)<!--rppm-->/,function(E,H,G,F){return"<!--rppm-->"+H+(g*(1+parseFloat(z[$('input[name="rppmmod"]:checked',D).attr("id").match(/\d+$/)[0]].modifiervalue))).toFixed(2)+F+"<!--rppm-->"})}}D.toggle(!(D.is(":empty")));var y="";if(this._rppmModList.hasOwnProperty(1)){y+=" + "+LANG.traits.hastertng[2]}else{if(this._rppmModList.hasOwnProperty(2)){y+=" + "+LANG.traits.critstrkrtng[2]}}if(g_pageInfo.type==6&&this._rppmModList.hasOwnProperty(6)){y+=" + Budget"}if(y.length>0){j=j.replace(/<!--rppm-->\[?(\d+(?:\.\d+)?)([^<]*)<!--rppm-->/,function(E,G,F){return"<!--rppm-->["+G+y+"]"+F+"<!--rppm-->"})}}}if(r){for(var t=1;t<=s;++t){$(r).append('<input type="checkbox" id="item-upgrade-'+t+'" />').append('<label for="item-upgrade-'+t+'"><a>'+$WH.sprintf(LANG.itemupgrade_format,t)+"</a></label>").append("<br />");$("#item-upgrade-"+t).change($WH.g_upgradeItemTooltip.bind(this,r,t))}var b=$WH.g_getDataSource();if(b[o]&&b[o].hasOwnProperty("tooltip_"+Locale.getName()+"_chal")){$(r).append('<input type="checkbox" id="item-upgrade-chal" />').append('<label for="item-upgrade-chal"><a>'+LANG.su_menu_challengemode+"</a></label>").append("<br />");$("#item-upgrade-chal").change($WH.g_upgradeItemTooltip.bind(this,r));$("#item-upgrade-chal").next().get(0).onmouseover=function(E){$WH.Tooltip.showAtCursor(E,LANG.challengemodescaling_tip)};$("#item-upgrade-chal").next().get(0).onmousemove=$WH.Tooltip.cursorUpdate;$("#item-upgrade-chal").next().get(0).onmouseout=$WH.Tooltip.hide}$(r).toggle(!$(r).is(":empty"))}return j};$WH.g_upgradeItemTooltip=function(d,j){var c=$WH.g_getDataSource();var l=g_pageInfo.typeId;if(c[l]){if(typeof j!="number"){j="chal"}var f=$("#"+d.id+" > input");var b;if(j=="chal"){b=f.get(f.length-1)}else{b=f.get(j-1)}var k=b.checked;var g=(k&&j!="chal")?j:0;var a=(c[l].upgradeData.length>0)?c[l].upgradeData[g].id:0;$("#open-links-button").click(function(){this.blur();Links.show({type:3,typeId:l,linkColor:"ff"+g_items.getItemQualityColor(c[l].quality),linkId:"item:"+l+":0:0:0:0:0:0:0:0:0:"+a,linkName:c[l]["name_"+Locale.getName()]})});f.each(function(m,n){n.checked=false});b.checked=k;if(!k){j=null}if(c[l]["tooltip_"+Locale.getName()]){var e=document.getElementById("tt"+l);var h=document.getElementById("ks"+l);this.innerHTML="<table><tr><td>"+$WH.g_enhanceTooltip.call(this,l,true,true,false,null,this._knownSpells,h,j,null,null,true)+'</td><th style="background-position: top right"></th></tr><tr><th style="background-position: bottom left"></th><th style="background-position: bottom right"></th></tr></table>';$WH.Tooltip.fixSafe(e,1,1)}}};$WH.g_staticTooltipLevelClick=function(b,a,g,j){while(b.className.indexOf("tooltip")==-1){b=b.parentNode}var h=b.innerHTML;h=h.match(/<!--\?(\d+):(\d+):(\d+):(\d+)/);if(!h){return}var k=parseInt(h[1]),e=parseInt(h[2]),f=parseInt(h[3]),d=parseInt(h[4]);if(e>=f){return}if(!a){a=prompt($WH.sprintf(LANG.prompt_ratinglevel,e,f),d)}a=parseInt(a);if(isNaN(a)){return}if(a==d||a<e||a>f){return}var c=$WH.g_getDataSource();h=($WH.g_setTooltipLevel.bind(b,c[k][(j?"buff_":"tooltip_")+Locale.getName()],a,j))();h=$WH.g_enhanceTooltip(h,true);b.innerHTML="<table><tr><td>"+h+'</td><th style="background-position: top right"></th></tr><tr><th style="background-position: bottom left"></th><th style="background-position: bottom right"></th></tr></table>';$WH.Tooltip.fixSafe(b,1,1);if(b.slider&&!g){Slider.setValue(b.slider,a)}if(!j){($WH.g_tooltipSpellsChange.bind(b))()}};$WH.g_tooltipSliderMove=function(c,b,a){$WH.g_staticTooltipLevelClick(this,a.value,1);if(this.bufftip){$WH.g_staticTooltipLevelClick(this.bufftip,a.value,1,1)}$WH.Tooltip.hide()};$WH.g_tooltipSpellsChange=function(){if(!this.modified){return}var c=this.modified[0],a=this.modified[1],b=[];$.each($("input:checked",c),function(d,e){b.push(parseInt(e.id.replace("known-","")))});this.modified[2]=b;this.innerHTML=$WH.g_setTooltipSpells(this.innerHTML,b,a);if(this.bufftip){($WH.g_tooltipSpellsChange.bind(this.bufftip))()}};$WH.g_tooltipRPPMChange=function(a){var b=$(this).attr("id").match(/\d+$/)[0];a.innerHTML=a.innerHTML.replace(/<!--rppm-->(\[?)(\d+(?:\.\d+)?)([^<]*)<!--rppm-->/,function(c,f,e,d){return"<!--rppm-->"+f+(a._rppmModBase*(1+parseFloat(a._rppmSpecModList[b].modifiervalue))).toFixed(2)+d+"<!--rppm-->"})};$WH.g_validateBpet=function(k,b){var g=1,l=25,j=25,a=0,d=4,c=3,h=(1<<10)-1,f=3,e=$.extend({},b);if(k.minlevel){g=k.minlevel}if(k.maxlevel){l=k.maxlevel}if(k.companion){l=g}if(!e.level){e.level=j}e.level=Math.min(Math.max(e.level,g),l);if(k.minquality){a=k.minquality;if(k.untameable){d=a}}if(k.maxquality){d=k.maxquality}if(e.quality==null){e.quality=c}e.quality=Math.min(Math.max(e.quality,a),d);if(k.companion){delete (e.quality)}if(k.breeds>0){h=k.breeds&h}if(!(h&(1<<f-3))){f=Math.floor(3+Math.log(h)/Math.LN2)}if(!e.breed||!(h&(1<<e.breed-3))){e.breed=f}return e};$WH.g_calcBattlePetStats=function(a,e,l,c,d){if(!$WH.g_battlePetBreedStats[e]){e=3}var h=a.health;if(isNaN(h)){h=0}var b=a.power;if(isNaN(b)){b=0}var g=a.speed;if(isNaN(g)){g=0}if(isNaN(l)){l=1}l=Math.min(Math.max(0,l),5);if(isNaN(c)){c=1}c=Math.min(Math.max(1,c),25);var f=$WH.g_battlePetBreedStats[e];var j=1+(l/10);var k=((h+f[0])*5*c*j)+100;if(d){k=k*0.83333333333333}return{health:Math.round(k),power:Math.round((b+f[1])*c*j),speed:Math.round((g+f[2])*c*j)}};$WH.g_battlePetBreedStats={3:[0.5,0.5,0.5],4:[0,2,0],5:[0,0,2],6:[2,0,0],7:[0.9,0.9,0],8:[0,0.9,0.9],9:[0.9,0,0.9],10:[0.4,0.9,0.4],11:[0.4,0.4,0.9],12:[0.9,0.4,0.4]};$WH.g_battlePetAbilityLevels=[1,2,4,10,15,20];$WH.Tooltip={create:function(j,l){var g=$WH.ce("div"),n=$WH.ce("table"),b=$WH.ce("tbody"),f=$WH.ce("tr"),c=$WH.ce("tr"),a=$WH.ce("td"),m=$WH.ce("th"),k=$WH.ce("th"),h=$WH.ce("th");g.className="wowhead-tooltip";m.style.backgroundPosition="top right";k.style.backgroundPosition="bottom left";h.style.backgroundPosition="bottom right";if(j){a.innerHTML=j}$WH.ae(f,a);$WH.ae(f,m);$WH.ae(b,f);$WH.ae(c,k);$WH.ae(c,h);$WH.ae(b,c);$WH.ae(n,b);if(!l){$WH.Tooltip.icon=$WH.ce("p");$WH.Tooltip.icon.style.visibility="hidden";$WH.ae($WH.Tooltip.icon,$WH.ce("div"));$WH.ae(g,$WH.Tooltip.icon)}$WH.ae(g,n);if(!l){var e=$WH.ce("div");e.className="wowhead-tooltip-powered";$WH.ae(g,e);$WH.Tooltip.logo=e}return g},getMultiPartHtml:function(b,a){return"<table><tr><td>"+b+"</td></tr></table><table><tr><td>"+a+"</td></tr></table>"},fix:function(d,b,f){var e=$WH.gE(d,"table")[0],h=$WH.gE(e,"td")[0],g=h.childNodes;d.className=$WH.trim(d.className.replace("tooltip-slider",""));if(g.length>=2&&g[0].nodeName=="TABLE"&&g[1].nodeName=="TABLE"){g[0].style.whiteSpace="nowrap";var a=parseInt(d.style.width);if(!d.slider||!a){if(g[1].offsetWidth==0){a=320}else{if(g[1].offsetWidth>300){a=Math.max(300,g[0].offsetWidth)+20}else{a=Math.max(g[0].offsetWidth,g[1].offsetWidth)+20}}}a=Math.min(320,a);if(a>20){d.style.width=a+"px";g[0].style.width=g[1].style.width="100%";if(d.slider){Slider.setSize(d.slider,a-6);d.className+=" tooltip-slider"}if(!b&&d.offsetHeight>document.body.clientHeight){e.className="shrink"}}}else{if(g.length>=1&&g[0].nodeName=="TABLE"&&d.slider){g[0].style.whiteSpace="nowrap";var a=parseInt(d.style.width);if(!a){a=g[0].offsetWidth+20}a=Math.min(320,a);if(a>20){d.style.width=a+"px";g[0].style.width="100%";if(d.slider){Slider.setSize(d.slider,a-6);d.className+=" tooltip-slider"}if(!b&&d.offsetHeight>document.body.clientHeight){e.className="shrink"}}}}if(f){d.style.visibility="visible"}},fixSafe:function(c,b,a){$WH.Tooltip.fix(c,b,a)},attachImage:function(d,e,k,h){if(typeof h=="undefined"){h=""}if(typeof jQuery!="undefined"){jQuery(d.parentNode).children(".image"+h).remove()}else{var l=new RegExp("\\bimage"+h+"\\b");for(var g=0;g<d.parentNode.childNodes.length;g++){if(l.test(d.parentNode.childNodes[g].className)){d.parentNode.removeChild(d.parentNode.childNodes[g]);g--}}}var j=typeof e;if(j=="number"){var f=$WH.g_getDataSource(),b=e;if(f[b]&&f[b]["image_"+Locale.getName()+h]){e=f[b]["image_"+Locale.getName()+h]}else{return}}else{if(j!="string"){return}}var a=$WH.ce("div");a.className="image"+h+(k?" "+k:"");a.style.backgroundImage="url("+e+")";if(typeof jQuery!="undefined"){jQuery(d).after(a)}else{d.parentNode.insertBefore(a,d.nextSibling)}},append:function(c,b){var c=$WH.ge(c);var a=$WH.Tooltip.create(b);$WH.ae(c,a);$WH.Tooltip.fixSafe(a,1,1)},prepare:function(){if($WH.Tooltip.tooltip){return}var a=$WH.Tooltip.create();a.style.position="absolute";a.style.left=a.style.top="-2323px";$WH.ae(document.body,a);$WH.Tooltip.tooltip=a;$WH.Tooltip.tooltipTable=$WH.gE(a,"table")[0];$WH.Tooltip.tooltipTd=$WH.gE(a,"td")[0];var a=$WH.Tooltip.create(null,true);a.style.position="absolute";a.style.left=a.style.top="-2323px";$WH.ae(document.body,a);$WH.Tooltip.tooltip2=a;$WH.Tooltip.tooltipTable2=$WH.gE(a,"table")[0];$WH.Tooltip.tooltipTd2=$WH.gE(a,"td")[0]},set:function(g,d,f,c){var b=$WH.Tooltip.tooltip;b.style.width="550px";b.style.left="-2323px";b.style.top="-2323px";if(g.match("hearthhead-tooltip-image")){if(g.match("hearthhead-tooltip-image large-tooltip")){$WH.Tooltip.tooltip.className="wowhead-tooltip hearthhead-tooltip-image large-tooltip"}else{$WH.Tooltip.tooltip.className="wowhead-tooltip hearthhead-tooltip-image"}}else{$WH.Tooltip.tooltip.className="wowhead-tooltip"}if(g.nodeName){$WH.ee($WH.Tooltip.tooltipTd);$WH.ae($WH.Tooltip.tooltipTd,g)}else{$WH.Tooltip.tooltipTd.innerHTML=g}b.style.display="";b.visibility="visible";$WH.Tooltip.fix(b,0,0);if(d){$WH.Tooltip.showSecondary=true;var b=$WH.Tooltip.tooltip2;b.style.width="550px";b.style.left="-2323px";b.style.top="-2323px";if(d.nodeName){$WH.ee($WH.Tooltip.tooltipTd2);$WH.ae($WH.Tooltip.tooltipTd2,d)}else{$WH.Tooltip.tooltipTd2.innerHTML=d}b.style.display="";$WH.Tooltip.fix(b,0,0)}else{$WH.Tooltip.showSecondary=false}var a=typeof Platform!="undefined"?Platform.isTouch():$WH.isTouch();if(a){var h=$WH.Tooltip.showSecondary?$WH.Tooltip.tooltipTd2:$WH.Tooltip.tooltipTd;var e=$WH.ce("a");e.href="javascript:;";e.className="wowhead-touch-tooltip-closer";e.innerHTML="X";e.onclick=$WH.Tooltip.hide;$WH.ae(h,e)}$WH.Tooltip.tooltipTable.style.display=(g=="")?"none":"";$WH.Tooltip.attachImage($WH.Tooltip.tooltipTable,f,c);$WH.Tooltip.generateEvent("show")},displayTooltip:function(a,d,b,c){$WowheadPower.displayTooltip(a,d,b,c)},moveTests:[[null,null],[null,false],[false,null],[false,false]],move:function(p,o,e,q,d,b){if(!$WH.Tooltip.tooltipTable){return}var n=$WH.Tooltip.tooltip,j=$WH.Tooltip.tooltipTable.offsetWidth,c=$WH.Tooltip.tooltipTable.offsetHeight,l=$WH.Tooltip.tooltip2,g=$WH.Tooltip.showSecondary?$WH.Tooltip.tooltipTable2.offsetWidth:0,a=$WH.Tooltip.showSecondary?$WH.Tooltip.tooltipTable2.offsetHeight:0,r;n.style.width=(j==0)?"auto":(j+"px");l.style.width=g+"px";var m,f;for(var h=0,k=$WH.Tooltip.moveTests.length;h<k;++h){r=$WH.Tooltip.moveTests[h];m=$WH.Tooltip.moveTest(p,o,e,q,d,b,r[0],r[1]);if($WH.isset("Ads")&&!Ads.intersect(m)){f=true;break}else{if(!$WH.isset("Ads")){break}}}if($WH.isset("Ads")&&!f){Ads.intersect(m,true)}n.style.left=m.l+"px";n.style.top=m.t+"px";n.style.visibility="visible";if($WH.Tooltip.showSecondary){l.style.left=m.l+j+"px";l.style.top=m.t+"px";l.style.visibility="visible"}$WH.Tooltip.generateEvent("move")},moveTest:function(e,n,q,B,c,a,p,b){var m=e,z=n,g=$WH.Tooltip.tooltip,k=$WH.Tooltip.tooltipTable.offsetWidth,s=$WH.Tooltip.tooltipTable.offsetHeight,o=$WH.Tooltip.tooltip2,A=$WH.Tooltip.showSecondary?$WH.Tooltip.tooltipTable2.offsetWidth:0,f=$WH.Tooltip.showSecondary?$WH.Tooltip.tooltipTable2.offsetHeight:0,j=$WH.g_getWindowSize(),l=$WH.g_getScroll(),h=j.w,r=j.h,d=l.x,y=l.y,w=d,v=y,u=d+h,t=y+r;if(p==null){p=(e+q+k+A<=u)}if(b==null){b=(n-Math.max(s,f)>=v)}if(p){e+=q+c}else{e=Math.max(e-(k+A),w)-c}if(b){n-=Math.max(s,f)+a}else{n+=B+a}if(e<w){e=w}else{if(e+k+A>u){e=u-(k+A)}}if(n<v){n=v}else{if(n+Math.max(s,f)>t){n=Math.max(y,t-Math.max(s,f))}}if($WH.Tooltip.iconVisible){if(m>=e-48&&m<=e&&z>=n-4&&z<=n+48){n-=48-(z-n)}}return $WH.g_createRect(e,n,k,s)},show:function(e,h,b,a,f,c,d,g){if($WH.Tooltip.disabled){return}if(!b||b<1){b=1}if(!a||a<1){a=1}if(f){h='<span class="'+f+'">'+h+"</span>"}var j=$WH.ac(e);$WH.Tooltip.prepare();$WH.Tooltip.set(h,c,d,g);$WH.Tooltip.move(j.x,j.y,e.offsetWidth,e.offsetHeight,b,a)},showAtCursor:function(f,k,b,a,g,c,d,j){if($WH.Tooltip.disabled){return}if(!b||b<10){b=10}if(!a||a<10){a=10}if(g){k='<span class="'+g+'">'+k+"</span>";if(c){c='<span class="'+g+'">'+c+"</span>"}}f=$WH.$E(f);var h=$WH.g_getCursorPos(f);$WH.Tooltip.prepare();$WH.Tooltip.set(k,c,d,j);$WH.Tooltip.move(h.x,h.y,0,0,b,a)},showAtXY:function(g,a,h,d,c,e,f,b){if($WH.Tooltip.disabled){return}$WH.Tooltip.prepare();$WH.Tooltip.set(g,e,f,b);$WH.Tooltip.move(a,h,0,0,d,c)},cursorUpdate:function(b,a,d){if($WH.Tooltip.disabled||!$WH.Tooltip.tooltip){return}b=$WH.$E(b);if(!a||a<10){a=10}if(!d||d<10){d=10}var c=$WH.g_getCursorPos(b);$WH.Tooltip.move(c.x,c.y,0,0,a,d)},hide:function(){if($WH.Tooltip.tooltip){$WH.Tooltip.tooltip.style.display="none";$WH.Tooltip.tooltip.visibility="hidden";$WH.Tooltip.tooltipTable.className="";$WH.Tooltip.setIcon(null);if($WH.isset("Ads")){Ads.restoreHidden()}$WH.Tooltip.generateEvent("hide")}if($WH.Tooltip.tooltip2){$WH.Tooltip.tooltip2.style.display="none";$WH.Tooltip.tooltip2.visibility="hidden";$WH.Tooltip.tooltipTable2.className=""}},setIcon:function(a){$WH.Tooltip.prepare();if(a){$WH.Tooltip.icon.style.backgroundImage="url(https://wowimg.zamimg.com/images/wow/icons/medium/"+a.toLowerCase()+".jpg)";$WH.Tooltip.icon.style.visibility="visible"}else{$WH.Tooltip.icon.style.backgroundImage="none";$WH.Tooltip.icon.style.visibility="hidden"}$WH.Tooltip.iconVisible=a?1:0},generateEvent:function(a){if(!$WH.Tooltip.tooltip){return}try{$WH.Tooltip.tooltip.dispatchEvent(new Event(a))}catch(c){try{var b=document.createEvent("Event");b.initEvent(a,true,true);$WH.Tooltip.tooltip.dispatchEvent(b)}catch(c){void (0)}}},addTooltipText:function(c,d,b){var a=b?' class="'+b+'"':"";c._fixTooltip=function(f){if(f.match(/hearthhead-tooltip-image/)){var g=/(<\/td><th[^>]*><\/th><\/tr><tr class="hearthhead-tooltip-inner">.*)/;var e=f.match(g);if(e){return f.replace(g,"<div"+a+' style="margin-top:10px">'+d+"</div>$1")}else{return f+"<table><tr><td><span"+a+">"+d+'</span></td><th style="background-position:right top"></th></tr><tr><th style="background-position:left bottom"></th><th style="background-position:right bottom"></th></tr></table>'}}else{var g=/<\/table>\s*$/;if(g.test(f)){return f.replace(g,'<tr><td colspan="2"><div'+a+' style="margin-top:10px">'+d+"</div></td></tr></table>")}else{return f+"<div"+a+' style="margin-top:10px">'+d+"</div>"}}}},simple:function(b,c,a,d){if(d){b.onmouseover=function(f){$WH.Tooltip.show(b,c,false,false,a)}}else{b.onmouseover=function(f){$WH.Tooltip.showAtCursor(f,c,false,false,a)};b.onmousemove=$WH.Tooltip.cursorUpdate}b.onmouseout=$WH.Tooltip.hide},simpleOverride:function(c,e,b,g,j,f,k,d,l,a,h){c.overrideTooltip={html:e,htmlGenerator:b,spanClass:g,icon:j,html2:f,html2Generator:k,image:d,imageClass:l,map:a,spellData:h}}};if($WH.isset("$WowheadPower")){$WowheadPower.init()}if(typeof jQuery!="undefined"&&$WH.g_getSite()=="wowhead"){$(document).ready(function(){var a=$("div.header .header-logo");a.eq(Math.floor(Math.random()*2)).addClass("hearthstone-logo")})};
+if (typeof $WH == "undefined") {
+    var $WH = {}
+}
+$WH.$E = function (a) {
+    if (!a) {
+        if (typeof event != "undefined") {
+            a = event
+        } else {
+            return null
+        }
+    }
+    if (a.which) {
+        a._button = a.which
+    } else {
+        a._button = a.button;
+        if ($WH.Browser.ie6789 && a._button) {
+            if (a._button & 4) {
+                a._button = 2
+            } else {
+                if (a._button & 2) {
+                    a._button = 3
+                }
+            }
+        } else {
+            a._button = a.button + 1
+        }
+    }
+    a._target = a.target ? a.target : a.srcElement;
+    a._wheelDelta = a.wheelDelta ? a.wheelDelta : -a.detail;
+    return a
+};
+$WH.$A = function (c) {
+    var e = [];
+    for (var d = 0, b = c.length; d < b; ++d) {
+        e.push(c[d])
+    }
+    return e
+};
+$WH.bindfunc = function () {
+    args = $WH.$A(arguments);
+    var b = args.shift();
+    var a = args.shift();
+    return function () {
+        return b.apply(a, args.concat($WH.$A(arguments)))
+    }
+};
+$WH.strcmp = function (d, c) {
+    if (d == c) {
+        return 0
+    }
+    if (d == null) {
+        return -1
+    }
+    if (c == null) {
+        return 1
+    }
+    var f = parseFloat(d);
+    var e = parseFloat(c);
+    if (!isNaN(f) && !isNaN(e) && f != e) {
+        return f < e ? -1 : 1
+    }
+    if (typeof d == "string" && typeof c == "string") {
+        return d.localeCompare(c)
+    }
+    return d < c ? -1 : 1
+};
+$WH.trim = function (a) {
+    return a.replace(/(^\s*|\s*$)/g, "")
+};
+$WH.rtrim = function (c, d) {
+    var b = c.length;
+    while (--b > 0 && c.charAt(b) == d) {}
+    c = c.substring(0, b + 1);
+    if (c == d) {
+        c = ""
+    }
+    return c
+};
+$WH.sprintf = function (b) {
+    var a;
+    for (a = 1, len = arguments.length; a < len; ++a) {
+        b = b.replace("$" + a, arguments[a])
+    }
+    return b
+};
+$WH.sprintfa = function (b) {
+    var a;
+    for (a = 1, len = arguments.length; a < len; ++a) {
+        b = b.replace(new RegExp("\\$" + a, "g"), arguments[a])
+    }
+    return b
+};
+$WH.sprintfo = function (c) {
+    if (typeof c == "object" && c.length) {
+        var a = c;
+        c = a[0];
+        var b;
+        for (b = 1; b < a.length; ++b) {
+            c = c.replace("$" + b, a[b])
+        }
+        return c
+    }
+};
+$WH.str_replace = function (e, d, c) {
+    while (e.indexOf(d) != -1) {
+        e = e.replace(d, c)
+    }
+    return e
+};
+$WH.urlencode = function (a) {
+    a = encodeURIComponent(a);
+    a = $WH.str_replace(a, "+", "%2B");
+    return a
+};
+$WH.urlencode2 = function (a) {
+    a = encodeURIComponent(a);
+    a = $WH.str_replace(a, "%20", "+");
+    a = $WH.str_replace(a, "%3D", "=");
+    return a
+};
+$WH.number_format = function (a) {
+    x = ("" + parseFloat(a)).split(".");
+    a = x[0];
+    x = x.length > 1 ? "." + x[1] : "";
+    if (a.length <= 3) {
+        return a + x
+    }
+    return $WH.number_format(a.substr(0, a.length - 3)) + "," + a.substr(a.length - 3) + x
+};
+$WH.is_array = function (b) {
+    return !!(b && b.constructor == Array)
+};
+$WH.in_array = function (c, g, h, e) {
+    if (c == null) {
+        return -1
+    }
+    if (h) {
+        return $WH.in_arrayf(c, g, h, e)
+    }
+    for (var d = e || 0, b = c.length; d < b; ++d) {
+        if (c[d] == g) {
+            return d
+        }
+    }
+    return -1
+};
+$WH.in_arrayf = function (c, g, h, e) {
+    for (var d = e || 0, b = c.length; d < b; ++d) {
+        if (h(c[d]) == g) {
+            return d
+        }
+    }
+    return -1
+};
+$WH.rs = function () {
+    var e = $WH.rs.random;
+    var b = "";
+    for (var a = 0; a < 16; a++) {
+        var d = Math.floor(Math.random() * e.length);
+        if (a == 0 && d < 11) {
+            d += 10
+        }
+        b += e.substring(d, d + 1)
+    }
+    return b
+};
+$WH.rs.random = "0123456789abcdefghiklmnopqrstuvwxyz";
+$WH.isset = function (a) {
+    return typeof window[a] != "undefined"
+};
+if (!$WH.isset("console")) {
+    console = {
+        log: function () {}
+    }
+}
+$WH.array_walk = function (d, h, c) {
+    var g;
+    for (var e = 0, b = d.length; e < b; ++e) {
+        g = h(d[e], c, d, e);
+        if (g != null) {
+            d[e] = g
+        }
+    }
+};
+$WH.array_apply = function (d, h, c) {
+    var g;
+    for (var e = 0, b = d.length; e < b; ++e) {
+        h(d[e], c, d, e)
+    }
+};
+$WH.array_filter = function (c, g) {
+    var e = [];
+    for (var d = 0, b = c.length; d < b; ++d) {
+        if (g(c[d])) {
+            e.push(c[d])
+        }
+    }
+    return e
+};
+$WH.array_index = function (c, e, g, h) {
+    if (!$WH.is_array(c)) {
+        return false
+    }
+    if (!c.__R || h) {
+        c.__R = {};
+        if (!g) {
+            g = function (a) {
+                return a
+            }
+        }
+        for (var d = 0, b = c.length; d < b; ++d) {
+            c.__R[g(c[d])] = d
+        }
+    }
+    return (e == null ? c.__R : !isNaN(c.__R[e]))
+};
+$WH.array_compare = function (d, c) {
+    if (d.length != c.length) {
+        return false
+    }
+    var g = {};
+    for (var f = d.length; f >= 0; --f) {
+        g[d[f]] = true
+    }
+    var e = true;
+    for (var f = c.length; f >= 0; --f) {
+        if (g[c[f]] === undefined) {
+            e = false
+        }
+    }
+    return e
+};
+$WH.array_unique = function (b) {
+    var c = [];
+    var e = {};
+    for (var d = b.length - 1; d >= 0; --d) {
+        e[b[d]] = 1
+    }
+    for (var d in e) {
+        c.push(d)
+    }
+    return c
+};
+$WH.ge = function (a) {
+    if (typeof a != "string") {
+        return a
+    }
+    return document.getElementById(a)
+};
+$WH.gE = function (a, b) {
+    return a.getElementsByTagName(b)
+};
+$WH.ce = function (d, b, e) {
+    var a = document.createElement(d);
+    if (b) {
+        $WH.cOr(a, b)
+    }
+    if (e) {
+        $WH.ae(a, e)
+    }
+    return a
+};
+$WH.de = function (a) {
+    if (!a || !a.parentNode) {
+        return
+    }
+    a.parentNode.removeChild(a)
+};
+$WH.ae = function (a, b) {
+    if ($WH.is_array(b)) {
+        $WH.array_apply(b, a.appendChild.bind(a));
+        return b
+    } else {
+        return a.appendChild(b)
+    }
+};
+$WH.aef = function (a, b) {
+    return a.insertBefore(b, a.firstChild)
+};
+$WH.ee = function (a, b) {
+    if (!b) {
+        b = 0
+    }
+    while (a.childNodes[b]) {
+        a.removeChild(a.childNodes[b])
+    }
+};
+$WH.ct = function (a) {
+    return document.createTextNode(a)
+};
+$WH.st = function (a, b) {
+    if (a.firstChild && a.firstChild.nodeType == 3) {
+        a.firstChild.nodeValue = b
+    } else {
+        $WH.aef(a, $WH.ct(b))
+    }
+};
+$WH.nw = function (a) {
+    a.style.whiteSpace = "nowrap"
+};
+$WH.rf = function () {
+    return false
+};
+$WH.rf2 = function (a) {
+    a = $WH.$E(a);
+    if (a.ctrlKey || a.shiftKey || a.altKey || a.metaKey) {
+        return
+    }
+    return false
+};
+$WH.tb = function () {
+    this.blur()
+};
+$WH.aE = function (b, c, a) {
+    if (b.addEventListener) {
+        b.addEventListener(c, a, false)
+    } else {
+        if (b.attachEvent) {
+            b.attachEvent("on" + c, a)
+        }
+    }
+};
+$WH.dE = function (b, c, a) {
+    if (b.removeEventListener) {
+        b.removeEventListener(c, a, false)
+    } else {
+        if (b.detachEvent) {
+            b.detachEvent("on" + c, a)
+        }
+    }
+};
+$WH.sp = function (a) {
+    if (!a) {
+        a = event
+    }
+    if ($WH.Browser.ie6789) {
+        a.cancelBubble = true
+    } else {
+        a.stopPropagation()
+    }
+};
+$WH.sc = function (h, j, d, f, g) {
+    var e = new Date();
+    var c = h + "=" + escape(d) + "; ";
+    e.setDate(e.getDate() + j);
+    c += "expires=" + e.toUTCString() + "; ";
+    if (f) {
+        c += "path=" + f + "; "
+    }
+    if (g) {
+        c += "domain=" + g + "; "
+    }
+    document.cookie = c;
+    $WH.gc(h);
+    $WH.gc.C[h] = d
+};
+$WH.dc = function (a) {
+    $WH.sc(a, -1);
+    $WH.gc.C[a] = null
+};
+$WH.gc = function (f) {
+    if ($WH.gc.I == null) {
+        var e = unescape(document.cookie).split("; ");
+        $WH.gc.C = {};
+        for (var c = 0, a = e.length; c < a; ++c) {
+            var g = e[c].indexOf("="),
+                b, d;
+            if (g != -1) {
+                b = e[c].substr(0, g);
+                d = e[c].substr(g + 1)
+            } else {
+                b = e[c];
+                d = ""
+            }
+            $WH.gc.C[b] = d
+        }
+        $WH.gc.I = 1
+    }
+    if (!f) {
+        return $WH.gc.C
+    } else {
+        return $WH.gc.C[f]
+    }
+};
+$WH.eO = function (b) {
+    for (var a in b) {
+        delete b[a]
+    }
+};
+$WH.dO = function (a) {
+    function b() {}
+    b.prototype = a;
+    return new b
+};
+$WH.cO = function (c, a) {
+    for (var b in a) {
+        if (a[b] !== null && typeof a[b] == "object" && a[b].length) {
+            c[b] = a[b].slice(0)
+        } else {
+            c[b] = a[b]
+        }
+    }
+    return c
+};
+$WH.cOr = function (c, a) {
+    for (var b in a) {
+        if (typeof a[b] == "object") {
+            if (a[b].length) {
+                c[b] = a[b].slice(0)
+            } else {
+                if (!c[b]) {
+                    c[b] = {}
+                }
+                $WH.cOr(c[b], a[b])
+            }
+        } else {
+            c[b] = a[b]
+        }
+    }
+    return c
+};
+$WH.Browser = {
+    ie: !! (window.attachEvent && !window.opera),
+    opera: !! window.opera,
+    safari: navigator.userAgent.indexOf("Safari") != -1,
+    firefox: navigator.userAgent.indexOf("Firefox") != -1,
+    chrome: navigator.userAgent.indexOf("Chrome") != -1
+};
+$WH.Browser.ie9 = $WH.Browser.ie && navigator.userAgent.indexOf("MSIE 9.0") != -1;
+$WH.Browser.ie8 = $WH.Browser.ie && navigator.userAgent.indexOf("MSIE 8.0") != -1 && !$WH.Browser.ie9;
+$WH.Browser.ie7 = $WH.Browser.ie && navigator.userAgent.indexOf("MSIE 7.0") != -1 && !$WH.Browser.ie8;
+$WH.Browser.ie6 = $WH.Browser.ie && navigator.userAgent.indexOf("MSIE 6.0") != -1 && !$WH.Browser.ie7;
+$WH.Browser.ie67 = $WH.Browser.ie6 || $WH.Browser.ie7;
+$WH.Browser.ie678 = $WH.Browser.ie67 || $WH.Browser.ie8;
+$WH.Browser.ie6789 = $WH.Browser.ie678 || $WH.Browser.ie9;
+$WH.OS = {
+    windows: navigator.appVersion.indexOf("Windows") != -1,
+    mac: navigator.appVersion.indexOf("Macintosh") != -1,
+    linux: navigator.appVersion.indexOf("Linux") != -1
+};
+$WH.supportsLocalStorage = function () {
+    try {
+        return "localStorage" in window && window.localStorage !== null
+    } catch (a) {
+        return false
+    }
+};
+$WH.g_getWindowSize = function () {
+    var a = 0,
+        b = 0;
+    if (document.documentElement && (document.documentElement.clientWidth || document.documentElement.clientHeight)) {
+        a = document.documentElement.clientWidth;
+        b = document.documentElement.clientHeight
+    } else {
+        if (document.body && (document.body.clientWidth || document.body.clientHeight)) {
+            a = document.body.clientWidth;
+            b = document.body.clientHeight
+        } else {
+            if (typeof window.innerWidth == "number") {
+                a = window.innerWidth;
+                b = window.innerHeight
+            }
+        }
+    }
+    return {
+        w: a,
+        h: b
+    }
+};
+$WH.g_getScroll = function () {
+    var a = 0,
+        b = 0;
+    if (typeof (window.pageYOffset) == "number") {
+        a = window.pageXOffset;
+        b = window.pageYOffset
+    } else {
+        if (document.body && (document.body.scrollLeft || document.body.scrollTop)) {
+            a = document.body.scrollLeft;
+            b = document.body.scrollTop
+        } else {
+            if (document.documentElement && (document.documentElement.scrollLeft || document.documentElement.scrollTop)) {
+                a = document.documentElement.scrollLeft;
+                b = document.documentElement.scrollTop
+            }
+        }
+    }
+    return {
+        x: a,
+        y: b
+    }
+};
+$WH.g_getCursorPos = function (c) {
+    var a, d;
+    if (window.innerHeight) {
+        a = c.pageX;
+        d = c.pageY
+    } else {
+        var b = $WH.g_getScroll();
+        a = c.clientX + b.x;
+        d = c.clientY + b.y
+    }
+    return {
+        x: a,
+        y: d
+    }
+};
+$WH.g_createReverseLookupJson = function (b) {
+    var c = {};
+    for (var a in b) {
+        c[b[a]] = a
+    }
+    return c
+};
+$WH.g_getLocaleFromDomain = function (b) {
+    var d = $WH.g_getLocaleFromDomain.L;
+    if (b && (typeof b == "string")) {
+        var c = b.split(".");
+        for (var a = 0; a < c.length; a++) {
+            if (c[a] in d) {
+                return d[c[a]]
+            }
+        }
+    }
+    return 0
+};
+$WH.g_getLocaleFromDomain.L = {
+    fr: 2,
+    de: 3,
+    es: 6,
+    ru: 7,
+    pt: 8,
+    www: 0
+};
+$WH.g_getDomainFromLocale = function (d) {
+    var g;
+    if ($WH.g_getDomainFromLocale.L) {
+        g = $WH.g_getDomainFromLocale.L
+    } else {
+        g = $WH.g_getDomainFromLocale.L = $WH.g_createReverseLookupJson($WH.g_getLocaleFromDomain.L);
+        if ((typeof g_dev != "undefined") && g_dev) {
+            var f = "",
+                b = "",
+                e;
+            e = document.location.hostname.split(".");
+            e.splice(-2, 2);
+            for (var a = 0; a < e.length; a++) {
+                if (e[a] in $WH.g_getLocaleFromDomain.L) {
+                    continue
+                }
+                if (/staging\d*/.test(e[a])) {
+                    f = f + "." + e[a]
+                } else {
+                    b = b + e[a] + "."
+                }
+            }
+            for (var c in $WH.g_getDomainFromLocale.L) {
+                if (c == 0) {
+                    $WH.g_getDomainFromLocale.L[c] = (b + f).replace(/\.+/, ".").replace(/^\./, "").replace(/\.$/, "")
+                } else {
+                    $WH.g_getDomainFromLocale.L[c] = b + $WH.g_getDomainFromLocale.L[c] + f
+                }
+            }
+        }
+    }
+    return (g[d] ? g[d] : "www")
+};
+$WH.g_getIdFromTypeName = function (a) {
+    var b = $WH.g_getIdFromTypeName.L;
+    return (b[a] ? b[a] : -1)
+};
+$WH.g_getIdFromTypeName.L = {
+    npc: 1,
+    object: 2,
+    item: 3,
+    itemset: 4,
+    quest: 5,
+    spell: 6,
+    zone: 7,
+    faction: 8,
+    pet: 9,
+    achievement: 10,
+    title: 11,
+    statistic: 16,
+    "transmog-set": 101,
+    petability: 200,
+    "hearthstone/card": 220,
+    card: 220,
+    deck: 104
+};
+$WH.g_ajaxIshRequest = function (b, d) {
+    var c = document.getElementsByTagName("head")[0];
+    if (d) {
+        $WH.ae(c, $WH.ce("script", {
+            type: "text/javascript",
+            src: b
+        }));
+        return
+    }
+    var a = $WH.g_getGets();
+    if (a.refresh != null) {
+        if (a.refresh.length) {
+            b += ("&refresh=" + a.refresh)
+        } else {
+            b += "&refresh"
+        }
+    }
+    if (a.locale != null) {
+        b += "&locale=" + a.locale
+    }
+    if (a.ptr != null) {
+        b += "&ptr"
+    }
+    $WH.ae(c, $WH.ce("script", {
+        type: "text/javascript",
+        src: b,
+        charset: "utf8"
+    }))
+};
+$WH.g_getGets = function () {
+    if ($WH.g_getGets.C != null) {
+        return $WH.g_getGets.C
+    }
+    var b = $WH.g_getQueryString();
+    var a = $WH.g_parseQueryString(b);
+    $WH.g_getGets.C = a;
+    return a
+};
+$WH.g_getQueryString = function () {
+    var a = "";
+    if (location.pathname) {
+        a += location.pathname.substr(1)
+    }
+    if (location.search) {
+        if (location.pathname) {
+            a += "&"
+        }
+        a += location.search.substr(1)
+    }
+    return a
+};
+$WH.g_parseQueryString = function (e) {
+    e = decodeURIComponent(e);
+    var d = e.split("&");
+    var c = {};
+    for (var b = 0, a = d.length; b < a; ++b) {
+        $WH.g_splitQueryParam(d[b], c)
+    }
+    return c
+};
+$WH.g_splitQueryParam = function (c, d) {
+    var e = c.indexOf("=");
+    var a;
+    var b;
+    if (e != -1) {
+        a = c.substr(0, e);
+        b = c.substr(e + 1)
+    } else {
+        a = c;
+        b = ""
+    }
+    d[a] = b
+};
+$WH.g_createRect = function (d, c, a, b) {
+    return {
+        l: d,
+        t: c,
+        r: d + a,
+        b: c + b
+    }
+};
+$WH.g_intersectRect = function (d, c) {
+    return !(d.l >= c.r || c.l >= d.r || d.t >= c.b || c.t >= d.b)
+};
+$WH.g_isRemote = function () {
+    return $WH.g_getSite() == "remote"
+};
+$WH.g_isWowhead = function () {
+    return typeof g_wowhead != "undefined" && g_wowhead
+};
+$WH.g_isHearthhead = function () {
+    return typeof g_hearthhead != "undefined" && g_hearthhead
+};
+$WH.g_isThottbot = function () {
+    return typeof g_thottbot != "undefined" && g_thottbot
+};
+$WH.g_getSite = function () {
+    if ($WH.g_isWowhead()) {
+        return "wowhead"
+    }
+    if ($WH.g_isHearthhead()) {
+        return "hearthhead"
+    }
+    if ($WH.g_isThottbot()) {
+        return "thottbot"
+    }
+    return "remote"
+};
+$WH.g_convertScalingSpell = function (b, g) {
+    var j = {}, f = $WH.g_convertScalingSpell.SV,
+        d = $WH.g_convertScalingSpell.SD,
+        a, k;
+    if (!d[g]) {
+        if (g_user.roles & U_GROUP_ADMIN) {
+            alert("There are no spell scaling distributions for dist " + g)
+        }
+        return j
+    }
+    if (!f[b]) {
+        if (g_user.roles & U_GROUP_ADMIN) {
+            alert("There are no spell scaling values for level " + b)
+        }
+        return j
+    }
+    a = d[g];
+    if (!a[3]) {
+        if (g_user.roles & U_GROUP_ADMIN) {
+            alert("This spell should not scale at all")
+        }
+        return j
+    } else {
+        if (a[3] == -1) {
+            if (g_user.roles & U_GROUP_ADMIN) {
+                alert("This spell should use the generic scaling distribution 12")
+            }
+            a[3] = 12
+        }
+    } if (!f[b][a[3] - 1]) {
+        if (g_user.roles & U_GROUP_ADMIN) {
+            alert("Unknown category for spell scaling " + a[3])
+        }
+        return j
+    }
+    if (a[15] > 0 && a[15] < b) {
+        b = a[15]
+    }
+    k = f[b][a[3] - 1];
+    if (a[13]) {
+        k *= (Math.min(b, a[14]) + (a[13] * Math.max(0, b - a[14]))) / b
+    }
+    j.cast = Math.min(a[1], a[1] > 0 && b > 1 ? a[0] + (((b - 1) * (a[1] - a[0])) / (a[2] - 1)) : a[0]);
+    j.effects = {};
+    for (var c = 0; c < 3; ++c) {
+        var l = a[4 + c],
+            h = a[7 + c],
+            e = a[10 + c],
+            m = j.effects[c + 1] = {};
+        m.avg = l * k * (a[1] > 0 ? j.cast / a[1] : 1);
+        m.min = Math.round(m.avg) - Math.floor(m.avg * h / 2);
+        m.max = Math.round(m.avg) + Math.floor(m.avg * h / 2);
+        m.pts = Math.round(e * k);
+        m.avg = Math.max(Math.ceil(l), Math.round(m.avg))
+    }
+    j.cast = Math.round(j.cast / 10) / 100;
+    return j
+};
+$WH.g_getDataSource = function () {
+    if ($WH.isset("g_pageInfo")) {
+        switch (g_pageInfo.type) {
+        case 3:
+            if ($WH.isset("g_items")) {
+                return g_items
+            }
+        case 6:
+            if ($WH.isset("g_spells")) {
+                return g_spells
+            }
+        case 200:
+            if ($WH.isset("g_petabilities")) {
+                return g_petabilities
+            }
+        case 220:
+            if ($WH.isset("g_hearthstone_cards")) {
+                return g_hearthstone_cards
+            }
+        }
+    }
+    return []
+};
+$WH.g_setJsonItemLevel = function (s, a, g) {
+    if (g && ((g.scalingcategory - 11) > 0)) {
+        var m = g.maxlvlscaling ? Math.min(a, g.maxlvlscaling) : a;
+        var e = $WH.g_getSpellScalingValue(g.scalingcategory, m);
+        for (var p = 1; p < 3; ++p) {
+            var l = g["itemenchspell" + p];
+            var b = g["itemenchtype" + p];
+            var n = $WH.g_statToJson[l];
+            if ((b == 5) && s[n]) {
+                var c = g["damage" + p];
+                if (c) {
+                    s[n] = Math.round(e * c)
+                }
+            }
+        }
+        if (g.allstats) {
+            for (var r in s) {
+                s[r] = Math.round(e * g.damage1)
+            }
+        }
+    }
+    if (!s.scadist || !s.scaflags) {
+        return
+    }
+    s.bonuses = s.bonuses || {};
+    var j = s.scaflags & 255,
+        h = (s.scaflags >> 8) & 255,
+        o = (s.scaflags & (1 << 16)) != 0,
+        d = (s.scaflags & (1 << 17)) != 0,
+        u = (s.scaflags & (1 << 18)) != 0,
+        t;
+    switch (j) {
+    case 5:
+    case 1:
+    case 7:
+    case 17:
+        t = 7;
+        break;
+    case 3:
+    case 12:
+        t = 8;
+        break;
+    case 16:
+    case 11:
+    case 14:
+        t = 9;
+        break;
+    case 15:
+        t = 10;
+        break;
+    case 23:
+    case 21:
+    case 22:
+    case 13:
+        t = 11;
+        break;
+    default:
+        t = -1
+    }
+    if (t >= 0) {
+        for (var p = 0; p < 10; ++p) {
+            var f = $WH.g_convertScalingFactor(a, t, s.scadist, p, 1);
+            if (f.n) {
+                s[f.n] = f.v
+            }
+            s.bonuses[f.s] = f.v
+        }
+    }
+    if (u) {
+        s.splpwr = s.bonuses[45] = $WH.g_convertScalingFactor(a, 6)
+    }
+    if (o) {
+        switch (j) {
+        case 3:
+            s.armor = $WH.g_convertScalingFactor(a, 11 + h);
+            break;
+        case 5:
+            s.armor = $WH.g_convertScalingFactor(a, 15 + h);
+            break;
+        case 1:
+            s.armor = $WH.g_convertScalingFactor(a, 19 + h);
+            break;
+        case 7:
+            s.armor = $WH.g_convertScalingFactor(a, 23 + h);
+            break;
+        case 16:
+            s.armor = $WH.g_convertScalingFactor(a, 28);
+            break;
+        case 14:
+            s.armor = $WH.g_convertScalingFactor(a, 29);
+            break;
+        default:
+            s.armor = 0
+        }
+    }
+    if (d) {
+        var k = (s.mledps ? "mle" : "rgd"),
+            q;
+        switch (j) {
+        case 23:
+        case 21:
+        case 22:
+        case 13:
+            s.dps = s[k + "dps"] = $WH.g_convertScalingFactor(a, u ? 2 : 0);
+            q = 0.3;
+            break;
+        case 17:
+            s.dps = s[k + "dps"] = $WH.g_convertScalingFactor(a, u ? 3 : 1);
+            q = 0.2;
+            break;
+        case 15:
+            s.dps = s[k + "dps"] = $WH.g_convertScalingFactor(a, h == 19 ? 5 : 4);
+            q = 0.3;
+            break;
+        default:
+            s.dps = s[k + "dps"] = 0;
+            q = 0
+        }
+        s.dmgmin = s[k + "dmgmin"] = Math.floor(s.dps * s.speed * (1 - q));
+        s.dmgmax = s[k + "dmgmax"] = Math.floor(s.dps * s.speed * (1 + q))
+    }
+};
+$WH.g_setJsonSpellLevel = function (a, b) {
+    if (!a.scadist) {
+        return
+    }
+    $WH.cO(a, $WH.g_convertScalingSpell(b, a.scadist))
+};
+$WH.g_scaleItemEnchantment = function (f, c) {
+    var h = f.enchantment;
+    if (f.scalinginfo && (f.scalinginfo.scalingcategory - 11) > 0) {
+        var e = h.match(/\d+/g);
+        if (e) {
+            var g = f.scalinginfo.maxlvlscaling ? Math.min(c, f.scalinginfo.maxlvlscaling) : c;
+            var b = $WH.g_getSpellScalingValue(f.scalinginfo.scalingcategory, g);
+            for (var d = 0; d < e.length; ++d) {
+                var a = f.scalinginfo["damage" + (d + 1)];
+                if (a) {
+                    h = h.replace(e[d], Math.round(b * a))
+                }
+            }
+        }
+    }
+    return h
+};
+$WH.g_getItemRandPropPointsType = function (a) {
+    switch (a.classs) {
+    case 2:
+        switch (a.subclass) {
+        case 1:
+        case 5:
+        case 6:
+        case 8:
+        case 10:
+        case 3:
+        case 2:
+        case 18:
+            return 0;
+        case 16:
+            return 4;
+        default:
+            return 3
+        }
+        break;
+    case 4:
+        switch (a.slot) {
+        case 1:
+        case 5:
+        case 7:
+            return 0;
+        case 3:
+        case 6:
+        case 8:
+        case 10:
+        case 12:
+            return 1;
+        case 2:
+        case 22:
+        case 23:
+        case 11:
+        case 16:
+        case 9:
+        case 14:
+            return 2;
+        default:
+            return -1
+        }
+        break;
+    default:
+        return -1
+    }
+};
+$WH.g_applyStatModifications = function (d, u, m, l, v) {
+    var r = $WH.dO(d);
+    if (r.subitems && r.subitems[u]) {
+        for (var G in r.subitems[u].jsonequip) {
+            if (!r.hasOwnProperty(G)) {
+                r[G] = 0
+            }
+            r[G] += r.subitems[u].jsonequip[G]
+        }
+    }
+    if ($WH.g_applyStatModifications.ScalingData.hasOwnProperty("AL") && ((l && d.upgrades && d.upgrades[l - 1]) || v)) {
+        var g = $WH.g_applyStatModifications.ScalingData.AV,
+            E = $WH.g_applyStatModifications.ScalingData.SV,
+            e = $WH.g_applyStatModifications.ScalingData.AL;
+        r.level = v ? $WH.g_applyStatModifications.ITEM_CHALLENGEMODE_LEVEL : (d.level + d.upgrades[l - 1]);
+        var t = r.level - d.level;
+        var s = Math.pow(1.15, t / 15);
+        var F = $WH.g_getItemRandPropPointsType(r);
+        var I = E[r.level];
+        var c = 0;
+        if (F != -1 && r.quality > 1 && r.quality < 6) {
+            var j = (r.quality == 5) ? 4 : r.quality;
+            var D = (j % 2) * 5 + F;
+            c = I[D] ? I[D] : 0
+        }
+        var f = I[15];
+        for (var y in $WH.g_statToJson) {
+            var p = $WH.g_statToJson[y];
+            if (r[p]) {
+                if (p != "armor") {
+                    var A = 0;
+                    var h = 0;
+                    if (r.statsInfo.hasOwnProperty(y)) {
+                        A = parseFloat(r.statsInfo[y].socketMult);
+                        h = parseInt(r.statsInfo[y].alloc)
+                    }
+                    var k = A * f;
+                    if (h && c > 0) {
+                        r[p] = Math.round((h / 10000) * c - k)
+                    } else {
+                        r[p] = Math.floor(((r[p] + k) * s) - k)
+                    }
+                }
+                if (p == "armor" && g[r.level]) {
+                    var o = (r.subclass == -6) ? 1 : r.subclass;
+                    if ($WH.in_array([1, 2, 3, 4], o) != -1) {
+                        var b = g[r.level][11 + r.quality];
+                        var a = g[r.level][o - 1];
+                        var w = e[r.slot][o];
+                        r[p] = Math.floor(a * b * w + 0.5)
+                    }
+                    if (r.subclass == 6) {
+                        r[p] = g[r.level][4 + r.quality]
+                    }
+                }
+            }
+        }
+        if (r.dps) {
+            var q = ["dps", "mledps", "rgddps"];
+            var z = ["dmgmin1", "mledmgmin", "rgddmgmin", "dmgmax1", "mledmgmax", "rgddmgmax"];
+            var H = r.dps * s;
+            var n = Math.floor(H * r.speed * (1 - r.damagerange / 2));
+            var C = Math.round(H * r.speed * (1 + r.damagerange / 2)) + 1;
+            for (var y in q) {
+                if (r[q[y]]) {
+                    r[q[y]] = parseFloat(H.toFixed(1))
+                }
+            }
+            for (var y in z) {
+                if (r[z[y]]) {
+                    if (z[y].indexOf("max") != -1) {
+                        r[z[y]] = C
+                    } else {
+                        r[z[y]] = n
+                    }
+                }
+            }
+        }
+    }
+    if (m) {
+        var B = $WH.g_getJsonReforge(r, m);
+        if (B.amount) {
+            r[B.s1] -= B.amount;
+            r[B.s2] = B.amount
+        }
+    }
+    return r
+};
+$WH.g_applyStatModifications.ITEM_CHALLENGEMODE_LEVEL = 463;
+$WH.g_getJsonReforge = function (b, c) {
+    if (!c) {
+        if (!$WH.g_reforgeStats) {
+            return []
+        }
+        b.__reforge = {};
+        b.__reforge.all = [];
+        for (var c in $WH.g_reforgeStats) {
+            var d = $WH.g_getJsonReforge(b, c);
+            if (d.amount) {
+                b.__reforge.all.push(d)
+            }
+        }
+        return b.__reforge.all
+    }
+    if (!$WH.g_reforgeStats || !$WH.g_reforgeStats[c]) {
+        return {}
+    }
+    b.__statidx = {};
+    for (var a in b) {
+        if ($WH.g_individualToGlobalStat[$WH.g_jsonToStat[a]]) {
+            b.__statidx[$WH.g_individualToGlobalStat[$WH.g_jsonToStat[a]]] = b[a]
+        } else {
+            b.__statidx[$WH.g_jsonToStat[a]] = b[a]
+        }
+    }
+    if (!b.__reforge) {
+        b.__reforge = {}
+    }
+    var d = b.__reforge[c] = $WH.dO($WH.g_reforgeStats[c]);
+    b.__reforge[c].amount = Math.floor(d.v * (b.__statidx[d.i1] && !b.__statidx[d.i2] ? b.__statidx[d.i1] : 0));
+    return b.__reforge[c]
+};
+$WH.g_getJsonItemEnchantMask = function (a) {
+    if (a.classs == 2 && a.subclass == 19) {
+        return 1 << (21 - 1)
+    }
+    return 1 << (a.slot - 1)
+};
+$WH.g_getSpellScalingValue = function (b, c) {
+    var a = $WH.g_convertScalingSpell ? $WH.g_convertScalingSpell.SV : null;
+    if (!a) {
+        return 0
+    }
+    return a[c][b - 1]
+};
+$WH.g_battlePetAbilityLevels = [1, 2, 4, 10, 15, 20];
+$WH.Tooltip = {
+    create: function (j, l) {
+        var g = $WH.ce("div"),
+            n = $WH.ce("table"),
+            b = $WH.ce("tbody"),
+            f = $WH.ce("tr"),
+            c = $WH.ce("tr"),
+            a = $WH.ce("td"),
+            m = $WH.ce("th"),
+            k = $WH.ce("th"),
+            h = $WH.ce("th");
+        g.className = "wowhead-tooltip";
+        m.style.backgroundPosition = "top right";
+        k.style.backgroundPosition = "bottom left";
+        h.style.backgroundPosition = "bottom right";
+        $WH.ae(f, a);
+        $WH.ae(f, m);
+        $WH.ae(b, f);
+        $WH.ae(c, k);
+        $WH.ae(c, h);
+        $WH.ae(b, c);
+        $WH.ae(n, b);
+        if (!l) {
+            $WH.Tooltip.icon = $WH.ce("p");
+            $WH.Tooltip.icon.style.visibility = "hidden";
+            $WH.ae($WH.Tooltip.icon, $WH.ce("div"));
+            $WH.ae(g, $WH.Tooltip.icon)
+        }
+        $WH.ae(g, n);
+        if (!l) {
+            var e = $WH.ce("div");
+            e.className = "wowhead-tooltip-powered";
+            $WH.ae(g, e);
+            $WH.Tooltip.logo = e
+        }
+        return g
+    },
+    getMultiPartHtml: function (b, a) {
+        return "<table><tr><td>" + b + "</td></tr></table><table><tr><td>" + a + "</td></tr></table>"
+    },
+    fix: function (d, b, f) {
+        var e = $WH.gE(d, "table")[0],
+            h = $WH.gE(e, "td")[0],
+            g = h.childNodes;
+        d.className = $WH.trim(d.className.replace("tooltip-slider", ""));
+        if (g.length >= 2 && g[0].nodeName == "TABLE" && g[1].nodeName == "TABLE") {
+            g[0].style.whiteSpace = "nowrap";
+            var a = parseInt(d.style.width);
+            if (!d.slider || !a) {
+                if (g[1].offsetWidth == 0) {
+                    a = 320
+                } else {
+                    if (g[1].offsetWidth > 300) {
+                        a = Math.max(300, g[0].offsetWidth) + 20
+                    } else {
+                        a = Math.max(g[0].offsetWidth, g[1].offsetWidth) + 20
+                    }
+                }
+            }
+            a = Math.min(320, a);
+            if (a > 20) {
+                d.style.width = a + "px";
+                g[0].style.width = g[1].style.width = "100%";
+                if (d.slider) {
+                    Slider.setSize(d.slider, a - 6);
+                    d.className += " tooltip-slider"
+                }
+                if (!b && d.offsetHeight > document.body.clientHeight) {
+                    e.className = "shrink"
+                }
+            }
+        } else {
+            if (g.length >= 1 && g[0].nodeName == "TABLE" && d.slider) {
+                g[0].style.whiteSpace = "nowrap";
+                var a = parseInt(d.style.width);
+                if (!a) {
+                    a = g[0].offsetWidth + 20
+                }
+                a = Math.min(320, a);
+                if (a > 20) {
+                    d.style.width = a + "px";
+                    g[0].style.width = "100%";
+                    if (d.slider) {
+                        Slider.setSize(d.slider, a - 6);
+                        d.className += " tooltip-slider"
+                    }
+                    if (!b && d.offsetHeight > document.body.clientHeight) {
+                        e.className = "shrink"
+                    }
+                }
+            }
+        } if (f) {
+            d.style.visibility = "visible"
+        }
+    },
+    fixSafe: function (c, b, a) {
+        $WH.Tooltip.fix(c, b, a)
+    },
+    attachImage: function (d, e, k, h) {
+        if (typeof h == "undefined") {
+            h = ""
+        }
+        if (typeof jQuery != "undefined") {
+            jQuery(d.parentNode).children(".image" + h).remove()
+        } else {
+            var l = new RegExp("\\bimage" + h + "\\b");
+            for (var g = 0; g < d.parentNode.childNodes.length; g++) {
+                if (l.test(d.parentNode.childNodes[g].className)) {
+                    d.parentNode.removeChild(d.parentNode.childNodes[g]);
+                    g--
+                }
+            }
+        }
+        var j = typeof e;
+        if (j == "number") {
+            var f = $WH.g_getDataSource(),
+                b = e;
+            if (f[b] && f[b]["image_" + Locale.getName() + h]) {
+                e = f[b]["image_" + Locale.getName() + h]
+            } else {
+                return
+            }
+        } else {
+            if (j != "string") {
+                return
+            }
+        }
+        var a = $WH.ce("div");
+        a.className = "image" + h + (k ? " " + k : "");
+        a.style.backgroundImage = "url(" + e + ")";
+        if (typeof jQuery != "undefined") {
+            jQuery(d).after(a)
+        } else {
+            d.parentNode.insertBefore(a, d.nextSibling)
+        }
+    },
+    append: function (c, b) {
+        var c = $WH.ge(c);
+        var a = $WH.Tooltip.create(b);
+        $WH.ae(c, a);
+        $WH.Tooltip.fixSafe(a, 1, 1)
+    },
+    prepare: function () {
+        if ($WH.Tooltip.tooltip) {
+            return
+        }
+        var a = $WH.Tooltip.create();
+        a.style.position = "absolute";
+        a.style.left = a.style.top = "-2323px";
+        $WH.ae(document.body, a);
+        $WH.Tooltip.tooltip = a;
+        $WH.Tooltip.tooltipTable = $WH.gE(a, "table")[0];
+        $WH.Tooltip.tooltipTd = $WH.gE(a, "td")[0];
+        var a = $WH.Tooltip.create(null, true);
+        a.style.position = "absolute";
+        a.style.left = a.style.top = "-2323px";
+        $WH.ae(document.body, a);
+        $WH.Tooltip.tooltip2 = a;
+        $WH.Tooltip.tooltipTable2 = $WH.gE(a, "table")[0];
+        $WH.Tooltip.tooltipTd2 = $WH.gE(a, "td")[0]
+    },
+    set: function (g, d, f, c) {
+        var b = $WH.Tooltip.tooltip;
+        b.style.width = "550px";
+        b.style.left = "-2323px";
+        b.style.top = "-2323px";
+        if (g.match("hearthhead-tooltip-image")) {
+            if (g.match("hearthhead-tooltip-image large-tooltip")) {
+                $WH.Tooltip.tooltip.className = "wowhead-tooltip hearthhead-tooltip-image large-tooltip"
+            } else {
+                $WH.Tooltip.tooltip.className = "wowhead-tooltip hearthhead-tooltip-image"
+            }
+        } else {
+            $WH.Tooltip.tooltip.className = "wowhead-tooltip"
+        } if (g.nodeName) {
+            $WH.ee($WH.Tooltip.tooltipTd);
+            $WH.ae($WH.Tooltip.tooltipTd, g)
+        } else {
+            $($WH.Tooltip.tooltipTd).html(g);
+        }
+        b.style.display = "";
+        b.visibility = "visible";
+        $WH.Tooltip.fix(b, 0, 0);
+        if (d) {
+            $WH.Tooltip.showSecondary = true;
+            var b = $WH.Tooltip.tooltip2;
+            b.style.width = "550px";
+            b.style.left = "-2323px";
+            b.style.top = "-2323px";
+            if (d.nodeName) {
+                $WH.ee($WH.Tooltip.tooltipTd2);
+                $WH.ae($WH.Tooltip.tooltipTd2, d)
+            }
+            b.style.display = "";
+            $WH.Tooltip.fix(b, 0, 0)
+        } else {
+            $WH.Tooltip.showSecondary = false
+        }
+        var a = typeof Platform != "undefined" ? Platform.isTouch() : $WH.isTouch();
+        if (a) {
+            var h = $WH.Tooltip.showSecondary ? $WH.Tooltip.tooltipTd2 : $WH.Tooltip.tooltipTd;
+            var e = $WH.ce("a");
+            e.href = "javascript:;";
+            e.className = "wowhead-touch-tooltip-closer";
+            e.onclick = $WH.Tooltip.hide;
+            $WH.ae(h, e)
+        }
+        $WH.Tooltip.tooltipTable.style.display = (g == "") ? "none" : "";
+        $WH.Tooltip.attachImage($WH.Tooltip.tooltipTable, f, c);
+        $WH.Tooltip.generateEvent("show")
+    },
+    displayTooltip: function (a, d, b, c) {
+        $WowheadPower.displayTooltip(a, d, b, c)
+    },
+    moveTests: [
+        [null, null],
+        [null, false],
+        [false, null],
+        [false, false]
+    ],
+    move: function (p, o, e, q, d, b) {
+        if (!$WH.Tooltip.tooltipTable) {
+            return
+        }
+        var n = $WH.Tooltip.tooltip,
+            j = $WH.Tooltip.tooltipTable.offsetWidth,
+            c = $WH.Tooltip.tooltipTable.offsetHeight,
+            l = $WH.Tooltip.tooltip2,
+            g = $WH.Tooltip.showSecondary ? $WH.Tooltip.tooltipTable2.offsetWidth : 0,
+            a = $WH.Tooltip.showSecondary ? $WH.Tooltip.tooltipTable2.offsetHeight : 0,
+            r;
+        n.style.width = (j == 0) ? "auto" : (j + "px");
+        l.style.width = g + "px";
+        var m, f;
+        for (var h = 0, k = $WH.Tooltip.moveTests.length; h < k; ++h) {
+            r = $WH.Tooltip.moveTests[h];
+            m = $WH.Tooltip.moveTest(p, o, e, q, d, b, r[0], r[1]);
+            if ($WH.isset("Ads") && !Ads.intersect(m)) {
+                f = true;
+                break
+            } else {
+                if (!$WH.isset("Ads")) {
+                    break
+                }
+            }
+        }
+        if ($WH.isset("Ads") && !f) {
+            Ads.intersect(m, true)
+        }
+        n.style.left = m.l + "px";
+        n.style.top = m.t + "px";
+        n.style.visibility = "visible";
+        if ($WH.Tooltip.showSecondary) {
+            l.style.left = m.l + j + "px";
+            l.style.top = m.t + "px";
+            l.style.visibility = "visible"
+        }
+        $WH.Tooltip.generateEvent("move")
+    },
+    moveTest: function (e, n, q, B, c, a, p, b) {
+        var m = e,
+            z = n,
+            g = $WH.Tooltip.tooltip,
+            k = $WH.Tooltip.tooltipTable.offsetWidth,
+            s = $WH.Tooltip.tooltipTable.offsetHeight,
+            o = $WH.Tooltip.tooltip2,
+            A = $WH.Tooltip.showSecondary ? $WH.Tooltip.tooltipTable2.offsetWidth : 0,
+            f = $WH.Tooltip.showSecondary ? $WH.Tooltip.tooltipTable2.offsetHeight : 0,
+            j = $WH.g_getWindowSize(),
+            l = $WH.g_getScroll(),
+            h = j.w,
+            r = j.h,
+            d = l.x,
+            y = l.y,
+            w = d,
+            v = y,
+            u = d + h,
+            t = y + r;
+        if (p == null) {
+            p = (e + q + k + A <= u)
+        }
+        if (b == null) {
+            b = (n - Math.max(s, f) >= v)
+        }
+        if (p) {
+            e += q + c
+        } else {
+            e = Math.max(e - (k + A), w) - c
+        } if (b) {
+            n -= Math.max(s, f) + a
+        } else {
+            n += B + a
+        } if (e < w) {
+            e = w
+        } else {
+            if (e + k + A > u) {
+                e = u - (k + A)
+            }
+        } if (n < v) {
+            n = v
+        } else {
+            if (n + Math.max(s, f) > t) {
+                n = Math.max(y, t - Math.max(s, f))
+            }
+        } if ($WH.Tooltip.iconVisible) {
+            if (m >= e - 48 && m <= e && z >= n - 4 && z <= n + 48) {
+                n -= 48 - (z - n)
+            }
+        }
+        return $WH.g_createRect(e, n, k, s)
+    },
+    show: function (e, h, b, a, f, c, d, g) {
+        if ($WH.Tooltip.disabled) {
+            return
+        }
+        if (!b || b < 1) {
+            b = 1
+        }
+        if (!a || a < 1) {
+            a = 1
+        }
+        if (f) {
+            h = '<span class="' + f + '">' + h + "</span>"
+        }
+        var j = $WH.ac(e);
+        $WH.Tooltip.prepare();
+        $WH.Tooltip.set(h, c, d, g);
+        $WH.Tooltip.move(j.x, j.y, e.offsetWidth, e.offsetHeight, b, a)
+    },
+    showAtCursor: function (f, k, b, a, g, c, d, j) {
+        if ($WH.Tooltip.disabled) {
+            return
+        }
+        if (!b || b < 10) {
+            b = 10
+        }
+        if (!a || a < 10) {
+            a = 10
+        }
+        if (g) {
+            k = '<span class="' + g + '">' + k + "</span>";
+            if (c) {
+                c = '<span class="' + g + '">' + c + "</span>"
+            }
+        }
+        f = $WH.$E(f);
+        var h = $WH.g_getCursorPos(f);
+        $WH.Tooltip.prepare();
+        $WH.Tooltip.set(k, c, d, j);
+        $WH.Tooltip.move(h.x, h.y, 0, 0, b, a)
+    },
+    showAtXY: function (g, a, h, d, c, e, f, b) {
+        if ($WH.Tooltip.disabled) {
+            return
+        }
+        $WH.Tooltip.prepare();
+        $WH.Tooltip.set(g, e, f, b);
+        $WH.Tooltip.move(a, h, 0, 0, d, c)
+    },
+    cursorUpdate: function (b, a, d) {
+        if ($WH.Tooltip.disabled || !$WH.Tooltip.tooltip) {
+            return
+        }
+        b = $WH.$E(b);
+        if (!a || a < 10) {
+            a = 10
+        }
+        if (!d || d < 10) {
+            d = 10
+        }
+        var c = $WH.g_getCursorPos(b);
+        $WH.Tooltip.move(c.x, c.y, 0, 0, a, d)
+    },
+    hide: function () {
+        if ($WH.Tooltip.tooltip) {
+            $WH.Tooltip.tooltip.style.display = "none";
+            $WH.Tooltip.tooltip.visibility = "hidden";
+            $WH.Tooltip.tooltipTable.className = "";
+            $WH.Tooltip.setIcon(null);
+            if ($WH.isset("Ads")) {
+                Ads.restoreHidden()
+            }
+            $WH.Tooltip.generateEvent("hide")
+        }
+        if ($WH.Tooltip.tooltip2) {
+            $WH.Tooltip.tooltip2.style.display = "none";
+            $WH.Tooltip.tooltip2.visibility = "hidden";
+            $WH.Tooltip.tooltipTable2.className = ""
+        }
+    },
+    setIcon: function (a) {
+        $WH.Tooltip.prepare();
+        if (a) {
+            $WH.Tooltip.icon.style.backgroundImage = "url(images/favicon.ico)";
+            $WH.Tooltip.icon.style.visibility = "visible"
+        } else {
+            $WH.Tooltip.icon.style.backgroundImage = "none";
+            $WH.Tooltip.icon.style.visibility = "hidden"
+        }
+        $WH.Tooltip.iconVisible = a ? 1 : 0
+    },
+    generateEvent: function (a) {
+        if (!$WH.Tooltip.tooltip) {
+            return
+        }
+        try {
+            $WH.Tooltip.tooltip.dispatchEvent(new Event(a))
+        } catch (c) {
+            try {
+                var b = document.createEvent("Event");
+                b.initEvent(a, true, true);
+                $WH.Tooltip.tooltip.dispatchEvent(b)
+            } catch (c) {
+                void(0)
+            }
+        }
+    },
+    addTooltipText: function (c, d, b) {
+        var a = b ? ' class="' + b + '"' : "";
+        c._fixTooltip = function (f) {
+            if (f.match(/hearthhead-tooltip-image/)) {
+                var g = /(<\/td><th[^>]*><\/th><\/tr><tr class="hearthhead-tooltip-inner">.*)/;
+                var e = f.match(g);
+                if (e) {
+                    return f.replace(g, "<div" + a + ' style="margin-top:10px">' + d + "</div>$1")
+                } else {
+                    return f + "<table><tr><td><span" + a + ">" + d + '</span></td><th style="background-position:right top"></th></tr><tr><th style="background-position:left bottom"></th><th style="background-position:right bottom"></th></tr></table>'
+                }
+            } else {
+                var g = /<\/table>\s*$/;
+                if (g.test(f)) {
+                    return f.replace(g, '<tr><td colspan="2"><div' + a + ' style="margin-top:10px">' + d + "</div></td></tr></table>")
+                } else {
+                    return f + "<div" + a + ' style="margin-top:10px">' + d + "</div>"
+                }
+            }
+        }
+    },
+    simpleOverride: function (c, e, b, g, j, f, k, d, l, a, h) {
+        c.overrideTooltip = {
+            html: e,
+            htmlGenerator: b,
+            spanClass: g,
+            icon: j,
+            html2: f,
+            html2Generator: k,
+            image: d,
+            imageClass: l,
+            map: a,
+            spellData: h
+        }
+    }
+};
+if ($WH.isset("$WowheadPower")) {
+    $WowheadPower.init()
+}
+if (typeof jQuery != "undefined" && $WH.g_getSite() == "wowhead") {
+    $(document).ready(function () {
+        var a = $("div.header .header-logo");
+        a.eq(Math.floor(Math.random() * 2)).addClass("hearthstone-logo")
+    })
+};
